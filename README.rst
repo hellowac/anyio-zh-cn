@@ -11,42 +11,39 @@
   :target: https://gitter.im/python-trio/AnyIO
   :alt: Gitter chat
 
-AnyIO is an asynchronous networking and concurrency library that works on top of either asyncio_ or
-trio_. It implements trio-like `structured concurrency`_ (SC) on top of asyncio and works in harmony
-with the native SC of trio itself.
+[English](README.EN.rst)
 
-Applications and libraries written against AnyIO's API will run unmodified on either asyncio_ or
-trio_. AnyIO can also be adopted into a library or application incrementally – bit by bit, no full
-refactoring necessary. It will blend in with the native libraries of your chosen backend.
+翻译并保持格式和缩进：
 
-Documentation
+AnyIO 是一个异步网络和并发库，基于 asyncio_ 或 trio_ 之上构建。它在 asyncio 上实现了类似 trio 的 `结构化并发 <structured concurrency>`_ (SC)，并与 trio 本身的原生 SC 和谐工作。
+
+针对 AnyIO API 编写的应用程序和库可以在 asyncio_ 或 trio_ 上无修改地运行。AnyIO 还可以逐步地集成到库或应用程序中 —— 一点一点地进行，不需要完全重构。它能够与你选择的后端的原生库无缝融合。
+
+文档
 -------------
 
-View full documentation at: https://anyio.readthedocs.io/
+查看完整文档： https://hellowac.githu.io/anyio-zh-cn/
 
-Features
+功能
 --------
 
-AnyIO offers the following functionality:
+AnyIO 提供以下功能：
 
-* Task groups (nurseries_ in trio terminology)
-* High-level networking (TCP, UDP and UNIX sockets)
+* 任务组（trio 术语中的 nurseries_）
+* 高级网络功能（TCP、UDP 和 UNIX 套接字）
 
-  * `Happy eyeballs`_ algorithm for TCP connections (more robust than that of asyncio on Python
-    3.8)
-  * async/await style UDP sockets (unlike asyncio where you still have to use Transports and
-    Protocols)
+  * TCP 连接的 `Happy eyeballs`_ 算法（比 Python 3.8 中 asyncio 的更健壮）
+  * 异步/等待风格的 UDP 套接字（与 asyncio 不同，后者仍需要使用传输层和协议）
 
-* A versatile API for byte streams and object streams
-* Inter-task synchronization and communication (locks, conditions, events, semaphores, object
-  streams)
-* Worker threads
-* Subprocesses
-* Asynchronous file I/O (using worker threads)
-* Signal handling
+* 用于字节流和对象流的多功能 API
+* 任务间同步与通信（锁、条件、事件、信号量、对象流）
+* 工作线程
+* 子进程
+* 异步文件 I/O（使用工作线程）
+* 信号处理
 
-AnyIO also comes with its own pytest_ plugin which also supports asynchronous fixtures.
-It even works with the popular Hypothesis_ library.
+AnyIO 还自带了 pytest_ 插件，支持异步固定装置（fixtures）。
+它甚至与流行的 Hypothesis_ 库兼容。
 
 .. _asyncio: https://docs.python.org/3/library/asyncio.html
 .. _trio: https://github.com/python-trio/trio
