@@ -19,7 +19,7 @@ jobs:
       - name: 安装依赖1
         # 安装当前的项目作为一个包
         run: |
-          git checkout 4.6.2 && pip install .
+          pip install anyio==4.6.2
       - name: 安装依赖2
         run: |
           git checkout sync-docs && pip install -r requirements.cn_docs.txt
