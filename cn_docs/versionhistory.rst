@@ -1,62 +1,122 @@
-Version history
+版本历史
 ===============
 
-This library adheres to `Semantic Versioning 2.0 <http://semver.org/>`_.
+**Version history**
 
-**UNRELEASED**
+.. tabs::
 
-- Fixed a misleading ``ValueError`` in the context of DNS failures
-  (`#815 <https://github.com/agronholm/anyio/issues/815>`_; PR by @graingert)
+    .. tab:: 中文
+
+      该库遵循 `语义版本控制 2.0 <http://semver.org/>`_。
+
+      **未发布**
+
+      - 修复了 DNS 失败情况下误导性的 ``ValueError`` 错误
+        （ `#815 <https://github.com/agronholm/anyio/issues/815>`_ ; PR 由 @graingert 提交）
+
+    .. tab:: 英文
+
+      This library adheres to `Semantic Versioning 2.0 <http://semver.org/>`_.
+
+      **UNRELEASED**
+
+      - Fixed a misleading ``ValueError`` in the context of DNS failures
+        (`#815 <https://github.com/agronholm/anyio/issues/815>`_; PR by @graingert)
 
 **4.6.2**
 
-- Fixed regression caused by (`#807 <https://github.com/agronholm/anyio/pull/807>`_)
-  that prevented the use of parametrized async fixtures
+.. tabs::
+
+    .. tab:: 中文
+
+      - 修复了由（ `#807 <https://github.com/agronholm/anyio/pull/807>`_ ）引起的回归问题，该问题阻止了参数化异步 fixture 的使用
+
+    .. tab:: 英文
+
+      - Fixed regression caused by (`#807 <https://github.com/agronholm/anyio/pull/807>`_)
+        that prevented the use of parametrized async fixtures
 
 **4.6.1**
 
-This release contains all the changes from both v4.5.1 and v4.6.0, plus:
+.. tabs::
 
-- Fixed TaskGroup and CancelScope producing cyclic references in tracebacks
-  when raising exceptions (`#806 <https://github.com/agronholm/anyio/pull/806>`_)
-  (PR by @graingert)
+    .. tab:: 中文
+
+      此版本包含了 v4.5.1 和 v4.6.0 中的所有变更，以及：
+
+      - 修复了 TaskGroup 和 CancelScope 在抛出异常时在 traceback 中产生循环引用的问题（ `#806 <https://github.com/agronholm/anyio/pull/806>`_ ）（PR 作者：@graingert）
+
+    .. tab:: 英文
+
+      This release contains all the changes from both v4.5.1 and v4.6.0, plus:
+
+      - Fixed TaskGroup and CancelScope producing cyclic references in tracebacks
+        when raising exceptions (`#806 <https://github.com/agronholm/anyio/pull/806>`_)
+        (PR by @graingert)
 
 **4.6.0**
 
-This release is the successor to v4.5.0 with Python 3.8 support dropped, and does not
-contain the changes from v4.5.1.
+.. tabs::
 
-- Dropped support for Python 3.8
-  (as `#698 <https://github.com/agronholm/anyio/issues/698>`_ cannot be resolved
-  without cancel message support)
-- Fixed 100% CPU use on asyncio while waiting for an exiting task group to finish while
-  said task group is within a cancelled cancel scope
-  (`#695 <https://github.com/agronholm/anyio/issues/695>`_)
-- Fixed cancel scopes on asyncio not propagating ``CancelledError`` on exit when the
-  enclosing cancel scope has been effectively cancelled
-  (`#698 <https://github.com/agronholm/anyio/issues/698>`_)
-- Fixed asyncio task groups not yielding control to the event loop at exit if there were
-  no child tasks to wait on
-- Fixed inconsistent task uncancellation with asyncio cancel scopes belonging to a
-  task group when said task group has child tasks running
+    .. tab:: 中文
+
+      此版本是 v4.5.0 的继任版本，已不再支持 Python 3.8，并且不包含 v4.5.1 的变更。
+
+      - 放弃对 Python 3.8 的支持（因为 `#698 <https://github.com/agronholm/anyio/issues/698>`_ 无法在没有取消消息支持的情况下解决）
+      - 修复了在 asyncio 中等待退出的任务组完成时，如果该任务组位于已取消的取消作用域内，会导致 100% CPU 占用的问题（ `#695 <https://github.com/agronholm/anyio/issues/695>`_ ）
+      - 修复了在 asyncio 中，当外部取消作用域已有效取消时，取消作用域在退出时未能传播 ``CancelledError`` 的问题（ `#698 <https://github.com/agronholm/anyio/issues/698>`_ ）
+      - 修复了 asyncio 任务组在退出时，如果没有子任务需要等待，未能将控制权交还给事件循环的问题
+      - 修复了当任务组中有子任务正在运行时， asyncio 取消作用域中任务的取消状态不一致的问题
+
+    .. tab:: 英文
+
+      This release is the successor to v4.5.0 with Python 3.8 support dropped, and does not
+      contain the changes from v4.5.1.
+
+      - Dropped support for Python 3.8
+        (as `#698 <https://github.com/agronholm/anyio/issues/698>`_ cannot be resolved
+        without cancel message support)
+      - Fixed 100% CPU use on asyncio while waiting for an exiting task group to finish while
+        said task group is within a cancelled cancel scope
+        (`#695 <https://github.com/agronholm/anyio/issues/695>`_)
+      - Fixed cancel scopes on asyncio not propagating ``CancelledError`` on exit when the
+        enclosing cancel scope has been effectively cancelled
+        (`#698 <https://github.com/agronholm/anyio/issues/698>`_)
+      - Fixed asyncio task groups not yielding control to the event loop at exit if there were
+        no child tasks to wait on
+      - Fixed inconsistent task uncancellation with asyncio cancel scopes belonging to a
+        task group when said task group has child tasks running
 
 **4.5.1**
 
-As Python 3.8 support was dropped in v4.6.0, this interim release was created to bring a
-regression fix to Python 3.8, and adds a few other fixes also present in v4.6.1.
+.. tabs::
 
-- Fixed acquring a lock twice in the same task on asyncio hanging instead of raising a
-  ``RuntimeError`` (`#798 <https://github.com/agronholm/anyio/issues/798>`_)
-- Fixed an async fixture's ``self`` being different than the test's ``self`` in
-  class-based tests (`#633 <https://github.com/agronholm/anyio/issues/633>`_)
-  (PR by @agronholm and @graingert)
-- Fixed ``TypeError`` with ``TLSStream`` on Windows when a certificate verification
-  error occurs when using a `truststore <https://github.com/sethmlarson/truststore>`_
-  SSL certificate (`#795 <https://github.com/agronholm/anyio/issues/795>`_)
-- Corrected documentation on ``anyio.Path`` regarding the limitations imposed by the
-  current Python version on several of its methods, and made the ``is_junction`` method
-  unavailable on Python versions earlier than 3.12
-  (`#794 <https://github.com/agronholm/anyio/issues/794>`_)
+    .. tab:: 中文
+
+      由于在 v4.6.0 中放弃了对 Python 3.8 的支持，本次过渡版本旨在为 Python 3.8 提供回归修复，并添加了 v4.6.1 中的其他修复。
+
+      - 修复了在 asyncio 中，同一任务中多次获取锁时会挂起，而不是抛出 ``RuntimeError`` 的问题（ `#798 <https://github.com/agronholm/anyio/issues/798>`_ ）
+      - 修复了类基于测试中，异步 fixture 的 ``self`` 与测试的 ``self`` 不同的问题（ `#633 <https://github.com/agronholm/anyio/issues/633>`_ ）（PR 由 @agronholm 和 @graingert 提交）
+      - 修复了在 Windows 上，当使用 `truststore <https://github.com/sethmlarson/truststore>`_ SSL 证书并发生证书验证错误时，``TLSStream`` 抛出 ``TypeError`` 的问题（ `#795 <https://github.com/agronholm/anyio/issues/795>`_ ）
+      - 更正了 ``anyio.Path`` 文档中关于当前 Python 版本对其几个方法的限制，并使得在 Python 3.12 之前的版本中不可用 ``is_junction`` 方法（ `#794 <https://github.com/agronholm/anyio/issues/794>`_ ）
+
+    .. tab:: 英文
+
+      As Python 3.8 support was dropped in v4.6.0, this interim release was created to bring a
+      regression fix to Python 3.8, and adds a few other fixes also present in v4.6.1.
+
+      - Fixed acquring a lock twice in the same task on asyncio hanging instead of raising a
+        ``RuntimeError`` (`#798 <https://github.com/agronholm/anyio/issues/798>`_)
+      - Fixed an async fixture's ``self`` being different than the test's ``self`` in
+        class-based tests (`#633 <https://github.com/agronholm/anyio/issues/633>`_)
+        (PR by @agronholm and @graingert)
+      - Fixed ``TypeError`` with ``TLSStream`` on Windows when a certificate verification
+        error occurs when using a `truststore <https://github.com/sethmlarson/truststore>`_
+        SSL certificate (`#795 <https://github.com/agronholm/anyio/issues/795>`_)
+      - Corrected documentation on ``anyio.Path`` regarding the limitations imposed by the
+        current Python version on several of its methods, and made the ``is_junction`` method
+        unavailable on Python versions earlier than 3.12
+        (`#794 <https://github.com/agronholm/anyio/issues/794>`_)
 
 **4.5.0**
 

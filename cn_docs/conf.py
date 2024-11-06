@@ -23,7 +23,7 @@ v = parse(get_version("anyio"))
 version = v.base_version
 release = v.public
 
-language = "zh-CN"
+language = "zh_CN"
 
 exclude_patterns = ["_build"]
 pygments_style = "sphinx"

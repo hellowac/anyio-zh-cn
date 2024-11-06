@@ -1,8 +1,12 @@
-API reference
+API 参考
 =============
 
-Event loop
+**API reference**
+
+事件循环
 ----------
+
+**Event loop**
 
 .. autofunction:: anyio.run
 .. autofunction:: anyio.get_all_backends
@@ -12,23 +16,29 @@ Event loop
 .. autofunction:: anyio.sleep_until
 .. autofunction:: anyio.current_time
 
-Asynchronous resources
+异步资源
 ----------------------
+
+**Asynchronous resources**
 
 .. autofunction:: anyio.aclose_forcefully
 
 .. autoclass:: anyio.abc.AsyncResource
 
-Typed attributes
+类型化属性
 ----------------
+
+**Typed attributes**
 
 .. autofunction:: anyio.typed_attribute
 
 .. autoclass:: anyio.TypedAttributeSet
 .. autoclass:: anyio.TypedAttributeProvider
 
-Timeouts and cancellation
+超时和取消
 -------------------------
+
+**Timeouts and cancellation**
 
 .. autofunction:: anyio.move_on_after
 .. autofunction:: anyio.fail_after
@@ -36,28 +46,36 @@ Timeouts and cancellation
 
 .. autoclass:: anyio.CancelScope
 
-Task groups
+任务组
 -----------
+
+**Task groups**
 
 .. autofunction:: anyio.create_task_group
 
 .. autoclass:: anyio.abc.TaskGroup
 .. autoclass:: anyio.abc.TaskStatus
 
-Running code in worker threads
+在工作线程中运行代码
 ------------------------------
+
+**Running code in worker threads**
 
 .. autofunction:: anyio.to_thread.run_sync
 .. autofunction:: anyio.to_thread.current_default_thread_limiter
 
-Running code in worker processes
+在工作进程中运行代码
 --------------------------------
+
+**Running code in worker processes**
 
 .. autofunction:: anyio.to_process.run_sync
 .. autofunction:: anyio.to_process.current_default_process_limiter
 
-Running asynchronous code from other threads
+从其他线程运行异步代码
 --------------------------------------------
+
+**Running asynchronous code from other threads**
 
 .. autofunction:: anyio.from_thread.run
 .. autofunction:: anyio.from_thread.run_sync
@@ -67,8 +85,10 @@ Running asynchronous code from other threads
 .. autoclass:: anyio.from_thread.BlockingPortal
 .. autoclass:: anyio.from_thread.BlockingPortalProvider
 
-Async file I/O
+异步文件 I/O
 --------------
+
+**Async file I/O**
 
 .. autofunction:: anyio.open_file
 .. autofunction:: anyio.wrap_file
@@ -76,8 +96,10 @@ Async file I/O
 .. autoclass:: anyio.AsyncFile
 .. autoclass:: anyio.Path
 
-Streams and stream wrappers
+流和流包装器
 ---------------------------
+
+**Streams and stream wrappers**
 
 .. autofunction:: anyio.create_memory_object_stream
 
@@ -116,8 +138,10 @@ Streams and stream wrappers
 .. autoclass:: anyio.streams.tls.TLSStream
 .. autoclass:: anyio.streams.tls.TLSListener
 
-Sockets and networking
+套接字和网络
 ----------------------
+
+**Sockets and networking**
 
 .. autofunction:: anyio.connect_tcp
 .. autofunction:: anyio.connect_unix
@@ -137,16 +161,20 @@ Sockets and networking
 .. autoclass:: anyio.abc.ConnectedUDPSocket()
 .. autoclass:: anyio.abc.UNIXSocketStream()
 
-Subprocesses
+子进程
 ------------
+
+**Subprocesses**
 
 .. autofunction:: anyio.run_process
 .. autofunction:: anyio.open_process
 
 .. autoclass:: anyio.abc.Process
 
-Synchronization
+同步
 ---------------
+
+**Synchronization**
 
 .. autoclass:: anyio.Event
 .. autoclass:: anyio.Lock
@@ -161,13 +189,17 @@ Synchronization
 .. autoclass:: anyio.CapacityLimiterStatistics
 .. autoclass:: anyio.SemaphoreStatistics
 
-Operating system signals
+操作系统信号
 ------------------------
+
+**Operating system signals**
 
 .. autofunction:: anyio.open_signal_receiver
 
-Low level operations
+低级操作
 --------------------
+
+**Low level operations**
 
 .. autofunction:: anyio.lowlevel.checkpoint
 .. autofunction:: anyio.lowlevel.checkpoint_if_cancelled
@@ -175,16 +207,20 @@ Low level operations
 
 .. autoclass:: anyio.lowlevel.RunVar
 
-Testing and debugging
+测试和调试
 ---------------------
+
+**Testing and debugging**
 
 .. autoclass:: anyio.TaskInfo
 .. autofunction:: anyio.get_current_task
 .. autofunction:: anyio.get_running_tasks
 .. autofunction:: anyio.wait_all_tasks_blocked
 
-Exceptions
+异常
 ----------
+
+**Exceptions**
 
 .. autoexception:: anyio.BrokenResourceError
 .. autoexception:: anyio.BusyResourceError
