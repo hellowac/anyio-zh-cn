@@ -11,10 +11,6 @@
   :target: https://gitter.im/python-trio/AnyIO
   :alt: Gitter chat
 
-[English](README.EN.rst)
-
-翻译并保持格式和缩进：
-
 AnyIO 是一个异步网络和并发库，基于 asyncio_ 或 trio_ 之上构建。它在 asyncio 上实现了类似 trio 的 `结构化并发 <structured concurrency>`_ (SC)，并与 trio 本身的原生 SC 和谐工作。
 
 针对 AnyIO API 编写的应用程序和库可以在 asyncio_ 或 trio_ 上无修改地运行。AnyIO 还可以逐步地集成到库或应用程序中 —— 一点一点地进行，不需要完全重构。它能够与你选择的后端的原生库无缝融合。

@@ -2,3 +2,4 @@ furo
 sphinx
 sphinx-tabs
 sphinx-autodoc-typehints
+sphinx-copybutton
