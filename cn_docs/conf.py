@@ -52,6 +52,6 @@ html_theme_options = {
         },
     ],
     "source_repository": "https://github.com/hellowac/anyio-zh-cn/",
-    "source_branch": "main",
-    "source_directory": "docs/",
+    "source_branch": "sync-docs",
+    "source_directory": "cn_docs/",
 }
