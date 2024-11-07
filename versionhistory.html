@@ -1,0 +1,1432 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN" data-content_root="./">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="索引" href="genindex.html" /><link rel="search" title="搜索" href="search.html" /><link rel="prev" title="为 AnyIO 做出贡献" href="contributing.html" />
+
+    <!-- Generated with Sphinx 8.1.3 and Furo 2024.08.06 -->
+        <title>版本历史 - AnyIO 4.6.2 文档</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=354aac6f" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/tabs.css?v=a5c4661c" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=302659d7" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #eeffcc;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">AnyIO 4.6.2 文档</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+  
+  
+  <span class="sidebar-brand-text">AnyIO 4.6.2 文档</span>
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder="搜索" name="q" aria-label="搜索">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="basics.html">基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tasks.html">创建和管理任务</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cancellation.html">取消和超时</a></li>
+<li class="toctree-l1"><a class="reference internal" href="synchronization.html">使用同步原语</a></li>
+<li class="toctree-l1"><a class="reference internal" href="streams.html">流</a></li>
+<li class="toctree-l1"><a class="reference internal" href="typedattrs.html">使用类型化属性</a></li>
+<li class="toctree-l1"><a class="reference internal" href="networking.html">使用套接字和流</a></li>
+<li class="toctree-l1"><a class="reference internal" href="threads.html">使用线程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="subprocesses.html">使用子进程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fileio.html">异步文件 I/O 支持</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals.html">接收操作系统信号</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testing.html">使用 AnyIO 进行测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API 参考</a></li>
+<li class="toctree-l1"><a class="reference internal" href="migration.html">从 AnyIO 3 迁移到 AnyIO 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="migration.html#anyio-2-anyio-3">从 AnyIO 2 迁移到 AnyIO 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">常见问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="support.html">获取帮助</a></li>
+<li class="toctree-l1"><a class="reference internal" href="support.html#id2">报告错误</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">为 AnyIO 做出贡献</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">版本历史</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="view-this-page">
+  <a class="muted-link" href="https://github.com/hellowac/anyio-zh-cn/blob/sync-docs/cn_docs/versionhistory.rst?plain=true" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div><div class="edit-this-page">
+  <a class="muted-link" href="https://github.com/hellowac/anyio-zh-cn/edit/sync-docs/cn_docs/versionhistory.rst" title="Edit this page">
+    <svg><use href="#svg-pencil"></use></svg>
+    <span class="visually-hidden">Edit this page</span>
+  </a>
+</div><div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <section id="id1">
+<h1>版本历史<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h1>
+<p><strong>Version history</strong></p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-0-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-0-0-0" name="0-0" role="tab" tabindex="0">中文</button><button aria-controls="panel-0-0-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-1" name="0-1" role="tab" tabindex="-1">英文</button></div><div aria-labelledby="tab-0-0-0" class="sphinx-tabs-panel" id="panel-0-0-0" name="0-0" role="tabpanel" tabindex="0"><p>该库遵循 <a class="reference external" href="http://semver.org/">语义版本控制 2.0</a>。</p>
+<p><strong>未发布</strong></p>
+<ul class="simple">
+<li><p>修复了 DNS 失败情况下误导性的 <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> 错误
+（ <a class="reference external" href="https://github.com/agronholm/anyio/issues/815">#815</a> ; PR 由 &#64;graingert 提交）</p></li>
+</ul>
+</div><div aria-labelledby="tab-0-0-1" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-1" name="0-1" role="tabpanel" tabindex="0"><p>This library adheres to <a class="reference external" href="http://semver.org/">Semantic Versioning 2.0</a>.</p>
+<p><strong>UNRELEASED</strong></p>
+<ul class="simple">
+<li><p>Fixed a misleading <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> in the context of DNS failures
+(<a class="reference external" href="https://github.com/agronholm/anyio/issues/815">#815</a>; PR by &#64;graingert)</p></li>
+</ul>
+</div></div>
+<p><strong>4.6.2</strong></p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-1-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-1-1-0" name="1-0" role="tab" tabindex="0">中文</button><button aria-controls="panel-1-1-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-1" name="1-1" role="tab" tabindex="-1">英文</button></div><div aria-labelledby="tab-1-1-0" class="sphinx-tabs-panel" id="panel-1-1-0" name="1-0" role="tabpanel" tabindex="0"><ul class="simple">
+<li><p>修复了由（ <a class="reference external" href="https://github.com/agronholm/anyio/pull/807">#807</a> ）引起的回归问题，该问题阻止了参数化异步 fixture 的使用</p></li>
+</ul>
+</div><div aria-labelledby="tab-1-1-1" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-1" name="1-1" role="tabpanel" tabindex="0"><ul class="simple">
+<li><p>Fixed regression caused by (<a class="reference external" href="https://github.com/agronholm/anyio/pull/807">#807</a>)
+that prevented the use of parametrized async fixtures</p></li>
+</ul>
+</div></div>
+<p><strong>4.6.1</strong></p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-2-2-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-2-2-0" name="2-0" role="tab" tabindex="0">中文</button><button aria-controls="panel-2-2-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-2-2-1" name="2-1" role="tab" tabindex="-1">英文</button></div><div aria-labelledby="tab-2-2-0" class="sphinx-tabs-panel" id="panel-2-2-0" name="2-0" role="tabpanel" tabindex="0"><p>此版本包含了 v4.5.1 和 v4.6.0 中的所有变更，以及：</p>
+<ul class="simple">
+<li><p>修复了 TaskGroup 和 CancelScope 在抛出异常时在 traceback 中产生循环引用的问题（ <a class="reference external" href="https://github.com/agronholm/anyio/pull/806">#806</a> ）（PR 作者：&#64;graingert）</p></li>
+</ul>
+</div><div aria-labelledby="tab-2-2-1" class="sphinx-tabs-panel" hidden="true" id="panel-2-2-1" name="2-1" role="tabpanel" tabindex="0"><p>This release contains all the changes from both v4.5.1 and v4.6.0, plus:</p>
+<ul class="simple">
+<li><p>Fixed TaskGroup and CancelScope producing cyclic references in tracebacks
+when raising exceptions (<a class="reference external" href="https://github.com/agronholm/anyio/pull/806">#806</a>)
+(PR by &#64;graingert)</p></li>
+</ul>
+</div></div>
+<p><strong>4.6.0</strong></p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-3-3-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-3-3-0" name="3-0" role="tab" tabindex="0">中文</button><button aria-controls="panel-3-3-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-3-3-1" name="3-1" role="tab" tabindex="-1">英文</button></div><div aria-labelledby="tab-3-3-0" class="sphinx-tabs-panel" id="panel-3-3-0" name="3-0" role="tabpanel" tabindex="0"><p>此版本是 v4.5.0 的继任版本，已不再支持 Python 3.8，并且不包含 v4.5.1 的变更。</p>
+<ul class="simple">
+<li><p>放弃对 Python 3.8 的支持（因为 <a class="reference external" href="https://github.com/agronholm/anyio/issues/698">#698</a> 无法在没有取消消息支持的情况下解决）</p></li>
+<li><p>修复了在 asyncio 中等待退出的任务组完成时，如果该任务组位于已取消的取消作用域内，会导致 100% CPU 占用的问题（ <a class="reference external" href="https://github.com/agronholm/anyio/issues/695">#695</a> ）</p></li>
+<li><p>修复了在 asyncio 中，当外部取消作用域已有效取消时，取消作用域在退出时未能传播 <code class="docutils literal notranslate"><span class="pre">CancelledError</span></code> 的问题（ <a class="reference external" href="https://github.com/agronholm/anyio/issues/698">#698</a> ）</p></li>
+<li><p>修复了 asyncio 任务组在退出时，如果没有子任务需要等待，未能将控制权交还给事件循环的问题</p></li>
+<li><p>修复了当任务组中有子任务正在运行时， asyncio 取消作用域中任务的取消状态不一致的问题</p></li>
+</ul>
+</div><div aria-labelledby="tab-3-3-1" class="sphinx-tabs-panel" hidden="true" id="panel-3-3-1" name="3-1" role="tabpanel" tabindex="0"><p>This release is the successor to v4.5.0 with Python 3.8 support dropped, and does not
+contain the changes from v4.5.1.</p>
+<ul class="simple">
+<li><p>Dropped support for Python 3.8
+(as <a class="reference external" href="https://github.com/agronholm/anyio/issues/698">#698</a> cannot be resolved
+without cancel message support)</p></li>
+<li><p>Fixed 100% CPU use on asyncio while waiting for an exiting task group to finish while
+said task group is within a cancelled cancel scope
+(<a class="reference external" href="https://github.com/agronholm/anyio/issues/695">#695</a>)</p></li>
+<li><p>Fixed cancel scopes on asyncio not propagating <code class="docutils literal notranslate"><span class="pre">CancelledError</span></code> on exit when the
+enclosing cancel scope has been effectively cancelled
+(<a class="reference external" href="https://github.com/agronholm/anyio/issues/698">#698</a>)</p></li>
+<li><p>Fixed asyncio task groups not yielding control to the event loop at exit if there were
+no child tasks to wait on</p></li>
+<li><p>Fixed inconsistent task uncancellation with asyncio cancel scopes belonging to a
+task group when said task group has child tasks running</p></li>
+</ul>
+</div></div>
+<p><strong>4.5.1</strong></p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-4-4-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-4-4-0" name="4-0" role="tab" tabindex="0">中文</button><button aria-controls="panel-4-4-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-4-4-1" name="4-1" role="tab" tabindex="-1">英文</button></div><div aria-labelledby="tab-4-4-0" class="sphinx-tabs-panel" id="panel-4-4-0" name="4-0" role="tabpanel" tabindex="0"><p>由于在 v4.6.0 中放弃了对 Python 3.8 的支持，本次过渡版本旨在为 Python 3.8 提供回归修复，并添加了 v4.6.1 中的其他修复。</p>
+<ul class="simple">
+<li><p>修复了在 asyncio 中，同一任务中多次获取锁时会挂起，而不是抛出 <code class="docutils literal notranslate"><span class="pre">RuntimeError</span></code> 的问题（ <a class="reference external" href="https://github.com/agronholm/anyio/issues/798">#798</a> ）</p></li>
+<li><p>修复了类基于测试中，异步 fixture 的 <code class="docutils literal notranslate"><span class="pre">self</span></code> 与测试的 <code class="docutils literal notranslate"><span class="pre">self</span></code> 不同的问题（ <a class="reference external" href="https://github.com/agronholm/anyio/issues/633">#633</a> ）（PR 由 &#64;agronholm 和 &#64;graingert 提交）</p></li>
+<li><p>修复了在 Windows 上，当使用 <a class="reference external" href="https://github.com/sethmlarson/truststore">truststore</a> SSL 证书并发生证书验证错误时，<code class="docutils literal notranslate"><span class="pre">TLSStream</span></code> 抛出 <code class="docutils literal notranslate"><span class="pre">TypeError</span></code> 的问题（ <a class="reference external" href="https://github.com/agronholm/anyio/issues/795">#795</a> ）</p></li>
+<li><p>更正了 <code class="docutils literal notranslate"><span class="pre">anyio.Path</span></code> 文档中关于当前 Python 版本对其几个方法的限制，并使得在 Python 3.12 之前的版本中不可用 <code class="docutils literal notranslate"><span class="pre">is_junction</span></code> 方法（ <a class="reference external" href="https://github.com/agronholm/anyio/issues/794">#794</a> ）</p></li>
+</ul>
+</div><div aria-labelledby="tab-4-4-1" class="sphinx-tabs-panel" hidden="true" id="panel-4-4-1" name="4-1" role="tabpanel" tabindex="0"><p>As Python 3.8 support was dropped in v4.6.0, this interim release was created to bring a
+regression fix to Python 3.8, and adds a few other fixes also present in v4.6.1.</p>
+<ul class="simple">
+<li><p>Fixed acquring a lock twice in the same task on asyncio hanging instead of raising a
+<code class="docutils literal notranslate"><span class="pre">RuntimeError</span></code> (<a class="reference external" href="https://github.com/agronholm/anyio/issues/798">#798</a>)</p></li>
+<li><p>Fixed an async fixture's <code class="docutils literal notranslate"><span class="pre">self</span></code> being different than the test's <code class="docutils literal notranslate"><span class="pre">self</span></code> in
+class-based tests (<a class="reference external" href="https://github.com/agronholm/anyio/issues/633">#633</a>)
+(PR by &#64;agronholm and &#64;graingert)</p></li>
+<li><p>Fixed <code class="docutils literal notranslate"><span class="pre">TypeError</span></code> with <code class="docutils literal notranslate"><span class="pre">TLSStream</span></code> on Windows when a certificate verification
+error occurs when using a <a class="reference external" href="https://github.com/sethmlarson/truststore">truststore</a>
+SSL certificate (<a class="reference external" href="https://github.com/agronholm/anyio/issues/795">#795</a>)</p></li>
+<li><p>Corrected documentation on <code class="docutils literal notranslate"><span class="pre">anyio.Path</span></code> regarding the limitations imposed by the
+current Python version on several of its methods, and made the <code class="docutils literal notranslate"><span class="pre">is_junction</span></code> method
+unavailable on Python versions earlier than 3.12
+(<a class="reference external" href="https://github.com/agronholm/anyio/issues/794">#794</a>)</p></li>
+</ul>
+</div></div>
+<p><strong>4.5.0</strong></p>
+<ul class="simple">
+<li><p>Improved the performance of <code class="docutils literal notranslate"><span class="pre">anyio.Lock</span></code> and <code class="docutils literal notranslate"><span class="pre">anyio.Semaphore</span></code> on asyncio (even up
+to 50 %)</p></li>
+<li><p>Added the <code class="docutils literal notranslate"><span class="pre">fast_acquire</span></code> parameter to <code class="docutils literal notranslate"><span class="pre">anyio.Lock</span></code> and <code class="docutils literal notranslate"><span class="pre">anyio.Semaphore</span></code> to
+further boost performance at the expense of safety (<code class="docutils literal notranslate"><span class="pre">acquire()</span></code> will not yield
+control back if there is no contention)</p></li>
+<li><p>Added support for the <code class="docutils literal notranslate"><span class="pre">from_uri()</span></code>, <code class="docutils literal notranslate"><span class="pre">full_match()</span></code>, <code class="docutils literal notranslate"><span class="pre">parser</span></code> methods/properties
+in <code class="docutils literal notranslate"><span class="pre">anyio.Path</span></code>, newly added in Python 3.13
+(<a class="reference external" href="https://github.com/agronholm/anyio/issues/737">#737</a>)</p></li>
+<li><p>Added support for more keyword arguments for <code class="docutils literal notranslate"><span class="pre">run_process()</span></code> and <code class="docutils literal notranslate"><span class="pre">open_process()</span></code>:
+<code class="docutils literal notranslate"><span class="pre">startupinfo</span></code>, <code class="docutils literal notranslate"><span class="pre">creationflags</span></code>, <code class="docutils literal notranslate"><span class="pre">pass_fds</span></code>, <code class="docutils literal notranslate"><span class="pre">user</span></code>, <code class="docutils literal notranslate"><span class="pre">group</span></code>,
+<code class="docutils literal notranslate"><span class="pre">extra_groups</span></code> and <code class="docutils literal notranslate"><span class="pre">umask</span></code>
+(<a class="reference external" href="https://github.com/agronholm/anyio/issues/742">#742</a>)</p></li>
+<li><p>Improved the type annotations and support for <code class="docutils literal notranslate"><span class="pre">PathLike</span></code> in <code class="docutils literal notranslate"><span class="pre">run_process()</span></code> and
+<code class="docutils literal notranslate"><span class="pre">open_process()</span></code> to allow for path-like arguments, just like <code class="docutils literal notranslate"><span class="pre">subprocess.Popen</span></code></p></li>
+<li><p>Changed the <code class="docutils literal notranslate"><span class="pre">ResourceWarning</span></code> from an unclosed memory object stream to include its
+address for easier identification</p></li>
+<li><p>Changed <code class="docutils literal notranslate"><span class="pre">start_blocking_portal()</span></code> to always use daemonic threads, to accommodate the
+&quot;loitering event loop&quot; use case</p></li>
+<li><p>Bumped the minimum version of Trio to v0.26.1</p></li>
+<li><p>Fixed <code class="docutils literal notranslate"><span class="pre">__repr__()</span></code> of <code class="docutils literal notranslate"><span class="pre">MemoryObjectItemReceiver</span></code>, when <code class="docutils literal notranslate"><span class="pre">item</span></code> is not defined
+(<a class="reference external" href="https://github.com/agronholm/anyio/pull/767">#767</a>; PR by &#64;Danipulok)</p></li>
+<li><p>Fixed <code class="docutils literal notranslate"><span class="pre">to_process.run_sync()</span></code> failing to initialize if <code class="docutils literal notranslate"><span class="pre">__main__.__file__</span></code> pointed
+to a file in a nonexistent directory
+(<a class="reference external" href="https://github.com/agronholm/anyio/issues/696">#696</a>)</p></li>
+<li><p>Fixed <code class="docutils literal notranslate"><span class="pre">AssertionError:</span> <span class="pre">feed_data</span> <span class="pre">after</span> <span class="pre">feed_eof</span></code> on asyncio when a subprocess is
+closed early, before its output has been read
+(<a class="reference external" href="https://github.com/agronholm/anyio/issues/490">#490</a>)</p></li>
+<li><p>Fixed <code class="docutils literal notranslate"><span class="pre">TaskInfo.has_pending_cancellation()</span></code> on asyncio not respecting shielded
+scopes (<a class="reference external" href="https://github.com/agronholm/anyio/issues/771">#771</a>; PR by &#64;gschaffner)</p></li>
+<li><p>Fixed <code class="docutils literal notranslate"><span class="pre">SocketStream.receive()</span></code> returning <code class="docutils literal notranslate"><span class="pre">bytearray</span></code> instead of <code class="docutils literal notranslate"><span class="pre">bytes</span></code> when
+using asyncio with <code class="docutils literal notranslate"><span class="pre">ProactorEventLoop</span></code> (Windows)
+(<a class="reference external" href="https://github.com/agronholm/anyio/issues/776">#776</a>)</p></li>
+<li><p>Fixed quitting the debugger in a pytest test session while in an active task group
+failing the test instead of exiting the test session (because the exit exception
+arrives in an exception group)</p></li>
+<li><p>Fixed support for Linux abstract namespaces in UNIX sockets that was broken in v4.2
+(<a class="reference external" href="https://github.com/agronholm/anyio/issues/781">#781</a>; PR by &#64;tapetersen)</p></li>
+<li><p>Fixed <code class="docutils literal notranslate"><span class="pre">KeyboardInterrupt</span></code> (ctrl+c) hanging the asyncio pytest runner</p></li>
+</ul>
+<p><strong>4.4.0</strong></p>
+<ul class="simple">
+<li><p>Added the <code class="docutils literal notranslate"><span class="pre">BlockingPortalProvider</span></code> class to aid with constructing synchronous
+counterparts to asynchronous interfaces that would otherwise require multiple blocking
+portals</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">__slots__</span></code> to <code class="docutils literal notranslate"><span class="pre">AsyncResource</span></code> so that child classes can use <code class="docutils literal notranslate"><span class="pre">__slots__</span></code>
+(<a class="reference external" href="https://github.com/agronholm/anyio/pull/733">#733</a>; PR by Justin Su)</p></li>
+<li><p>Added the <code class="docutils literal notranslate"><span class="pre">TaskInfo.has_pending_cancellation()</span></code> method</p></li>
+<li><p>Fixed erroneous <code class="docutils literal notranslate"><span class="pre">RuntimeError:</span> <span class="pre">called</span> <span class="pre">'started'</span> <span class="pre">twice</span> <span class="pre">on</span> <span class="pre">the</span> <span class="pre">same</span> <span class="pre">task</span> <span class="pre">status</span></code>
+when cancelling a task in a TaskGroup created with the <code class="docutils literal notranslate"><span class="pre">start()</span></code> method before
+the first checkpoint is reached after calling <code class="docutils literal notranslate"><span class="pre">task_status.started()</span></code>
+(<a class="reference external" href="https://github.com/agronholm/anyio/issues/706">#706</a>; PR by Dominik Schwabe)</p></li>
+<li><p>Fixed two bugs with <code class="docutils literal notranslate"><span class="pre">TaskGroup.start()</span></code> on asyncio:</p>
+<ul>
+<li><p>Fixed erroneous <code class="docutils literal notranslate"><span class="pre">RuntimeError:</span> <span class="pre">called</span> <span class="pre">'started'</span> <span class="pre">twice</span> <span class="pre">on</span> <span class="pre">the</span> <span class="pre">same</span> <span class="pre">task</span> <span class="pre">status</span></code>
+when cancelling a task in a TaskGroup created with the <code class="docutils literal notranslate"><span class="pre">start()</span></code> method before
+the first checkpoint is reached after calling <code class="docutils literal notranslate"><span class="pre">task_status.started()</span></code>
+(<a class="reference external" href="https://github.com/agronholm/anyio/issues/706">#706</a>; PR by Dominik Schwabe)</p></li>
+<li><p>Fixed the entire task group being cancelled if a <code class="docutils literal notranslate"><span class="pre">TaskGroup.start()</span></code> call gets
+cancelled (<a class="reference external" href="https://github.com/agronholm/anyio/issues/685">#685</a>,
+<a class="reference external" href="https://github.com/agronholm/anyio/issues/710">#710</a>)</p></li>
+</ul>
+</li>
+<li><p>Fixed a race condition that caused crashes when multiple event loops of the same
+backend were running in separate threads and simultaneously attempted to use AnyIO for
+their first time (<a class="reference external" href="https://github.com/agronholm/anyio/issues/425">#425</a>; PR by David
+Jiricek and Ganden Schaffner)</p></li>
+<li><p>Fixed cancellation delivery on asyncio incrementing the wrong cancel scope's
+cancellation counter when cascading a cancel operation to a child scope, thus failing
+to uncancel the host task (<a class="reference external" href="https://github.com/agronholm/anyio/issues/716">#716</a>)</p></li>
+<li><p>Fixed erroneous <code class="docutils literal notranslate"><span class="pre">TypedAttributeLookupError</span></code> if a typed attribute getter raises
+<code class="docutils literal notranslate"><span class="pre">KeyError</span></code></p></li>
+<li><p>Fixed the asyncio backend not respecting the <code class="docutils literal notranslate"><span class="pre">PYTHONASYNCIODEBUG</span></code> environment
+variable when setting the <code class="docutils literal notranslate"><span class="pre">debug</span></code> flag in <code class="docutils literal notranslate"><span class="pre">anyio.run()</span></code></p></li>
+<li><p>Fixed <code class="docutils literal notranslate"><span class="pre">SocketStream.receive()</span></code> not detecting EOF on asyncio if there is also data in
+the read buffer (<a class="reference external" href="https://github.com/agronholm/anyio/issues/701">#701</a>)</p></li>
+<li><p>Fixed <code class="docutils literal notranslate"><span class="pre">MemoryObjectStream</span></code> dropping an item if the item is delivered to a recipient
+that is waiting to receive an item but has a cancellation pending
+(<a class="reference external" href="https://github.com/agronholm/anyio/issues/728">#728</a>)</p></li>
+<li><p>Emit a <code class="docutils literal notranslate"><span class="pre">ResourceWarning</span></code> for <code class="docutils literal notranslate"><span class="pre">MemoryObjectReceiveStream</span></code> and
+<code class="docutils literal notranslate"><span class="pre">MemoryObjectSendStream</span></code> that were garbage collected without being closed (PR by
+Andrey Kazantcev)</p></li>
+<li><p>Fixed <code class="docutils literal notranslate"><span class="pre">MemoryObjectSendStream.send()</span></code> not raising <code class="docutils literal notranslate"><span class="pre">BrokenResourceError</span></code> when the
+last corresponding <code class="docutils literal notranslate"><span class="pre">MemoryObjectReceiveStream</span></code> is closed while waiting to send a
+falsey item (<a class="reference external" href="https://github.com/agronholm/anyio/issues/731">#731</a>; PR by Ganden
+Schaffner)</p></li>
+</ul>
+<p><strong>4.3.0</strong></p>
+<ul>
+<li><p>Added support for the Python 3.12 <code class="docutils literal notranslate"><span class="pre">walk_up</span></code> keyword argument in
+<code class="docutils literal notranslate"><span class="pre">anyio.Path.relative_to()</span></code> (PR by Colin Taylor)</p></li>
+<li><p>Fixed passing <code class="docutils literal notranslate"><span class="pre">total_tokens</span></code> to <code class="docutils literal notranslate"><span class="pre">anyio.CapacityLimiter()</span></code> as a keyword argument
+not working on the <code class="docutils literal notranslate"><span class="pre">trio</span></code> backend
+(<a class="reference external" href="https://github.com/agronholm/anyio/issues/515">#515</a>)</p></li>
+<li><p>Fixed <code class="docutils literal notranslate"><span class="pre">Process.aclose()</span></code> not performing the minimum level of necessary cleanup when
+cancelled. Previously:</p>
+<ul class="simple">
+<li><p>Cancellation of <code class="docutils literal notranslate"><span class="pre">Process.aclose()</span></code> could leak an orphan process</p></li>
+<li><p>Cancellation of <code class="docutils literal notranslate"><span class="pre">run_process()</span></code> could very briefly leak an orphan process.</p></li>
+<li><p>Cancellation of <code class="docutils literal notranslate"><span class="pre">Process.aclose()</span></code> or <code class="docutils literal notranslate"><span class="pre">run_process()</span></code> on Trio could leave
+standard streams unclosed</p></li>
+</ul>
+<p>(PR by Ganden Schaffner)</p>
+</li>
+<li><p>Fixed <code class="docutils literal notranslate"><span class="pre">Process.stdin.aclose()</span></code>, <code class="docutils literal notranslate"><span class="pre">Process.stdout.aclose()</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">Process.stderr.aclose()</span></code> not including a checkpoint on asyncio (PR by Ganden
+Schaffner)</p></li>
+<li><p>Fixed documentation on how to provide your own typed attributes</p></li>
+</ul>
+<p><strong>4.2.0</strong></p>
+<ul>
+<li><p>Add support for <code class="docutils literal notranslate"><span class="pre">byte</span></code>-based paths in <code class="docutils literal notranslate"><span class="pre">connect_unix</span></code>, <code class="docutils literal notranslate"><span class="pre">create_unix_listeners</span></code>,
+<code class="docutils literal notranslate"><span class="pre">create_unix_datagram_socket</span></code>, and <code class="docutils literal notranslate"><span class="pre">create_connected_unix_datagram_socket</span></code>. (PR by
+Lura Skye)</p></li>
+<li><p>Enabled the <code class="docutils literal notranslate"><span class="pre">Event</span></code> and <code class="docutils literal notranslate"><span class="pre">CapacityLimiter</span></code> classes to be instantiated outside an
+event loop thread</p></li>
+<li><p>Broadly improved/fixed the type annotations. Among other things, many functions and
+methods that take variadic positional arguments now make use of PEP 646
+<code class="docutils literal notranslate"><span class="pre">TypeVarTuple</span></code> to allow the positional arguments to be validated by static type
+checkers. These changes affected numerous methods and functions, including:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">anyio.run()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TaskGroup.start_soon()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">anyio.from_thread.run()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">anyio.from_thread.run_sync()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">anyio.to_thread.run_sync()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">anyio.to_process.run_sync()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BlockingPortal.call()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BlockingPortal.start_task_soon()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BlockingPortal.start_task()</span></code></p></li>
+</ul>
+<p>(also resolves <a class="reference external" href="https://github.com/agronholm/anyio/issues/560">#560</a>)</p>
+</li>
+<li><p>Fixed various type annotations of <code class="docutils literal notranslate"><span class="pre">anyio.Path</span></code> to match Typeshed:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">anyio.Path.__lt__()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">anyio.Path.__le__()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">anyio.Path.__gt__()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">anyio.Path.__ge__()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">anyio.Path.__truediv__()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">anyio.Path.__rtruediv__()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">anyio.Path.hardlink_to()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">anyio.Path.samefile()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">anyio.Path.symlink_to()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">anyio.Path.with_segments()</span></code></p></li>
+</ul>
+<p>(PR by Ganden Schaffner)</p>
+</li>
+<li><p>Fixed adjusting the total number of tokens in a <code class="docutils literal notranslate"><span class="pre">CapacityLimiter</span></code> on asyncio failing
+to wake up tasks waiting to acquire the limiter in certain edge cases (fixed with help
+from Egor Blagov)</p></li>
+<li><p>Fixed <code class="docutils literal notranslate"><span class="pre">loop_factory</span></code> and <code class="docutils literal notranslate"><span class="pre">use_uvloop</span></code> options not being used on the asyncio
+backend (<a class="reference external" href="https://github.com/agronholm/anyio/issues/643">#643</a>)</p></li>
+<li><p>Fixed cancellation propagating on asyncio from a task group to child tasks if the task
+hosting the task group is in a shielded cancel scope
+(<a class="reference external" href="https://github.com/agronholm/anyio/issues/642">#642</a>)</p></li>
+</ul>
+<p><strong>4.1.0</strong></p>
+<ul class="simple">
+<li><p>Adapted to API changes made in Trio v0.23:</p>
+<ul>
+<li><p>Call <code class="docutils literal notranslate"><span class="pre">trio.to_thread.run_sync()</span></code> using the <code class="docutils literal notranslate"><span class="pre">abandon_on_cancel</span></code> keyword argument
+instead of <code class="docutils literal notranslate"><span class="pre">cancellable</span></code></p></li>
+<li><p>Removed a checkpoint when exiting a task group</p></li>
+<li><p>Renamed the <code class="docutils literal notranslate"><span class="pre">cancellable</span></code> argument in <code class="docutils literal notranslate"><span class="pre">anyio.to_thread.run_sync()</span></code> to
+<code class="docutils literal notranslate"><span class="pre">abandon_on_cancel</span></code> (and deprecated the old parameter name)</p></li>
+<li><p>Bumped minimum version of Trio to v0.23</p></li>
+</ul>
+</li>
+<li><p>Added support for voluntary thread cancellation via
+<code class="docutils literal notranslate"><span class="pre">anyio.from_thread.check_cancelled()</span></code></p></li>
+<li><p>Bumped minimum version of trio to v0.23</p></li>
+<li><p>Exposed the <code class="docutils literal notranslate"><span class="pre">ResourceGuard</span></code> class in the public API
+(<a class="reference external" href="https://github.com/agronholm/anyio/issues/627">#627</a>)</p></li>
+<li><p>Fixed <code class="docutils literal notranslate"><span class="pre">RuntimeError:</span> <span class="pre">Runner</span> <span class="pre">is</span> <span class="pre">closed</span></code> when running higher-scoped async generator
+fixtures in some cases (<a class="reference external" href="https://github.com/agronholm/anyio/issues/619">#619</a>)</p></li>
+<li><p>Fixed discrepancy between <code class="docutils literal notranslate"><span class="pre">asyncio</span></code> and <code class="docutils literal notranslate"><span class="pre">trio</span></code> where reraising a cancellation
+exception in an <code class="docutils literal notranslate"><span class="pre">except*</span></code> block would incorrectly bubble out of its cancel scope
+(<a class="reference external" href="https://github.com/agronholm/anyio/issues/634">#634</a>)</p></li>
+</ul>
+<p><strong>4.0.0</strong></p>
+<ul class="simple">
+<li><p><strong>BACKWARDS INCOMPATIBLE</strong> Replaced AnyIO's own <code class="docutils literal notranslate"><span class="pre">ExceptionGroup</span></code> class with the PEP
+654 <code class="docutils literal notranslate"><span class="pre">BaseExceptionGroup</span></code> and <code class="docutils literal notranslate"><span class="pre">ExceptionGroup</span></code></p></li>
+<li><p><strong>BACKWARDS INCOMPATIBLE</strong> Changes to cancellation semantics:</p>
+<ul>
+<li><p>Any exceptions raising out of a task groups are now nested inside an
+<code class="docutils literal notranslate"><span class="pre">ExceptionGroup</span></code> (or <code class="docutils literal notranslate"><span class="pre">BaseExceptionGroup</span></code> if one or more <code class="docutils literal notranslate"><span class="pre">BaseException</span></code> were
+included)</p></li>
+<li><p>Fixed task group not raising a cancellation exception on asyncio at exit if no child
+tasks were spawned and an outer cancellation scope had been cancelled before</p></li>
+<li><p>Ensured that exiting a <code class="docutils literal notranslate"><span class="pre">TaskGroup</span></code> always hits a yield point, regardless of
+whether there are running child tasks to be waited on</p></li>
+<li><p>On asyncio, cancel scopes will defer cancelling tasks that are scheduled to resume
+with a finished future</p></li>
+<li><p>On asyncio and Python 3.9/3.10, cancel scopes now only suppress cancellation
+exceptions if the cancel message matches the scope</p></li>
+<li><p>Task groups on all backends now raise a single cancellation exception when an outer
+cancel scope is cancelled, and no exceptions other than cancellation exceptions are
+raised in the group</p></li>
+</ul>
+</li>
+<li><p><strong>BACKWARDS INCOMPATIBLE</strong> Changes the pytest plugin to run all tests and fixtures in
+the same task, allowing fixtures to set context variables for tests and other fixtures</p></li>
+<li><p><strong>BACKWARDS INCOMPATIBLE</strong> Changed <code class="docutils literal notranslate"><span class="pre">anyio.Path.relative_to()</span></code> and
+<code class="docutils literal notranslate"><span class="pre">anyio.Path.is_relative_to()</span></code> to only accept one argument, as passing multiple
+arguments is deprecated as of Python 3.12</p></li>
+<li><p><strong>BACKWARDS INCOMPATIBLE</strong> Dropped support for spawning tasks from old-style coroutine
+functions (<code class="docutils literal notranslate"><span class="pre">&#64;asyncio.coroutine</span></code>)</p></li>
+<li><p><strong>BACKWARDS INCOMPATIBLE</strong> The <code class="docutils literal notranslate"><span class="pre">policy</span></code> option on the <code class="docutils literal notranslate"><span class="pre">asyncio</span></code> backend was
+changed to <code class="docutils literal notranslate"><span class="pre">loop_factory</span></code> to accommodate <code class="docutils literal notranslate"><span class="pre">asyncio.Runner</span></code></p></li>
+<li><p>Changed <code class="docutils literal notranslate"><span class="pre">anyio.run()</span></code> to use <code class="docutils literal notranslate"><span class="pre">asyncio.Runner</span></code> (or a back-ported version of it on
+Pythons older than 3.11) on the <code class="docutils literal notranslate"><span class="pre">asyncio</span></code> backend</p></li>
+<li><p>Dropped support for Python 3.7</p></li>
+<li><p>Added support for Python 3.12</p></li>
+<li><p>Bumped minimum version of trio to v0.22</p></li>
+<li><p>Added the <code class="docutils literal notranslate"><span class="pre">anyio.Path.is_junction()</span></code> and <code class="docutils literal notranslate"><span class="pre">anyio.Path.walk()</span></code> methods</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">create_unix_datagram_socket</span></code> and <code class="docutils literal notranslate"><span class="pre">create_connected_unix_datagram_socket</span></code> to
+create UNIX datagram sockets (PR by Jean Hominal)</p></li>
+<li><p>Fixed <code class="docutils literal notranslate"><span class="pre">from_thread.run</span></code> and <code class="docutils literal notranslate"><span class="pre">from_thread.run_sync</span></code> not setting sniffio on asyncio.
+As a result:</p>
+<ul>
+<li><p>Fixed <code class="docutils literal notranslate"><span class="pre">from_thread.run_sync</span></code> failing when used to call sniffio-dependent functions
+on asyncio</p></li>
+<li><p>Fixed <code class="docutils literal notranslate"><span class="pre">from_thread.run</span></code> failing when used to call sniffio-dependent functions on
+asyncio from a thread running trio or curio</p></li>
+<li><p>Fixed deadlock when using <code class="docutils literal notranslate"><span class="pre">from_thread.start_blocking_portal(backend=&quot;asyncio&quot;)</span></code>
+in a thread running trio or curio (PR by Ganden Schaffner)</p></li>
+</ul>
+</li>
+<li><p>Improved type annotations:</p>
+<ul>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">item_type</span></code> argument of <code class="docutils literal notranslate"><span class="pre">create_memory_object_stream</span></code> was deprecated.
+To indicate the item type handled by the stream, use
+<code class="docutils literal notranslate"><span class="pre">create_memory_object_stream[T_Item]()</span></code> instead. Type checking should no longer
+fail when annotating memory object streams with uninstantiable item types (PR by
+Ganden Schaffner)</p></li>
+</ul>
+</li>
+<li><p>Added the <code class="docutils literal notranslate"><span class="pre">CancelScope.cancelled_caught</span></code> property which tells users if the cancel
+scope suppressed a cancellation exception</p></li>
+<li><p>Fixed <code class="docutils literal notranslate"><span class="pre">fail_after()</span></code> raising an unwarranted <code class="docutils literal notranslate"><span class="pre">TimeoutError</span></code> when the cancel scope
+was cancelled before reaching its deadline</p></li>
+<li><p>Fixed <code class="docutils literal notranslate"><span class="pre">MemoryObjectReceiveStream.receive()</span></code> causing the receiving task on asyncio to
+remain in a cancelled state if the operation was cancelled after an item was queued to
+be received by the task (but before the task could actually receive the item)</p></li>
+<li><p>Fixed <code class="docutils literal notranslate"><span class="pre">TaskGroup.start()</span></code> on asyncio not responding to cancellation from the outside</p></li>
+<li><p>Fixed tasks started from <code class="docutils literal notranslate"><span class="pre">BlockingPortal</span></code> not notifying synchronous listeners
+(<code class="docutils literal notranslate"><span class="pre">concurrent.futures.wait()</span></code>) when they're cancelled</p></li>
+<li><p>Removed unnecessary extra waiting cycle in <code class="docutils literal notranslate"><span class="pre">Event.wait()</span></code> on asyncio in the case
+where the event was not yet set</p></li>
+<li><p>Fixed processes spawned by <code class="docutils literal notranslate"><span class="pre">anyio.to_process()</span></code> being &quot;lost&quot; as unusable to the
+process pool when processes that have idled over 5 minutes are pruned at part of the
+<code class="docutils literal notranslate"><span class="pre">to_process.run_sync()</span></code> call, leading to increased memory consumption
+(PR by Anael Gorfinkel)</p></li>
+</ul>
+<p>Changes since 4.0.0rc1:</p>
+<ul class="simple">
+<li><p>Fixed the type annotation of <code class="docutils literal notranslate"><span class="pre">TaskGroup.start_soon()</span></code> to accept any awaitables
+(already in v3.7.0 but was missing from 4.0.0rc1)</p></li>
+<li><p>Changed <code class="docutils literal notranslate"><span class="pre">CancelScope</span></code> to also consider the cancellation count (in addition to the
+cancel message) on asyncio to determine if a cancellation exception should be
+swallowed on scope exit, to combat issues where third party libraries catch the
+<code class="docutils literal notranslate"><span class="pre">CancelledError</span></code> and raise another, thus erasing the original cancel message</p></li>
+<li><p>Worked around a <a class="reference external" href="https://github.com/python/cpython/issues/108668">CPython bug</a> that
+caused <code class="docutils literal notranslate"><span class="pre">TLSListener.handle_handshake_error()</span></code> on asyncio to log <code class="docutils literal notranslate"><span class="pre">&quot;NoneType:</span> <span class="pre">None&quot;</span></code>
+instead of the error (PR by Ganden Schaffner)</p></li>
+<li><p>Re-added the <code class="docutils literal notranslate"><span class="pre">item_type</span></code> argument to <code class="docutils literal notranslate"><span class="pre">create_memory_object_stream()</span></code> (but using it
+raises a deprecation warning and does nothing with regards to the static types of the
+returned streams)</p></li>
+<li><p>Fixed processes spawned by <code class="docutils literal notranslate"><span class="pre">anyio.to_process()</span></code> being &quot;lost&quot; as unusable to the
+process pool when processes that have idled over 5 minutes are pruned at part of the
+<code class="docutils literal notranslate"><span class="pre">to_process.run_sync()</span></code> call, leading to increased memory consumption
+(PR by Anael Gorfinkel)</p></li>
+</ul>
+<p><strong>3.7.1</strong></p>
+<ul class="simple">
+<li><p>Fixed sending large buffers via UNIX stream sockets on asyncio</p></li>
+<li><p>Fixed several minor documentation issues (broken links to classes, missing classes or
+attributes)</p></li>
+</ul>
+<p><strong>3.7.0</strong></p>
+<ul>
+<li><p>Dropped support for Python 3.6</p></li>
+<li><p>Improved type annotations:</p>
+<ul>
+<li><p>Several functions and methods that were previously annotated as accepting
+<code class="docutils literal notranslate"><span class="pre">Coroutine[Any,</span> <span class="pre">Any,</span> <span class="pre">Any]</span></code> as the return type of the callable have been amended to
+accept <code class="docutils literal notranslate"><span class="pre">Awaitable[Any]</span></code> instead, to allow a slightly broader set of coroutine-like
+inputs, like <code class="docutils literal notranslate"><span class="pre">async_generator_asend</span></code> objects returned from the <code class="docutils literal notranslate"><span class="pre">asend()</span></code> method
+of async generators, and to match the <code class="docutils literal notranslate"><span class="pre">trio</span></code> annotations:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">anyio.run()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">anyio.from_thread.run()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TaskGroup.start_soon()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TaskGroup.start()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BlockingPortal.call()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BlockingPortal.start_task_soon()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BlockingPortal.start_task()</span></code></p></li>
+</ul>
+<p>Note that this change involved only changing the type annotations; run-time
+functionality was not altered.</p>
+</li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">TaskStatus</span></code> class is now a generic protocol, and should be parametrized to
+indicate the type of the value passed to <code class="docutils literal notranslate"><span class="pre">task_status.started()</span></code></p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">Listener</span></code> class is now covariant in its stream type</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">create_memory_object_stream()</span></code> now allows passing only <code class="docutils literal notranslate"><span class="pre">item_type</span></code></p></li>
+<li><p>Object receive streams are now covariant and object send streams are correspondingly
+contravariant</p></li>
+</ul>
+</li>
+<li><p>Changed <code class="docutils literal notranslate"><span class="pre">TLSAttribute.shared_ciphers</span></code> to match the documented semantics of
+<code class="docutils literal notranslate"><span class="pre">SSLSocket.shared_ciphers</span></code> of always returning <code class="docutils literal notranslate"><span class="pre">None</span></code> for client-side streams</p></li>
+<li><p>Fixed <code class="docutils literal notranslate"><span class="pre">CapacityLimiter</span></code> on the asyncio backend to order waiting tasks in the FIFO
+order (instead of LIFO) (PR by Conor Stevenson)</p></li>
+<li><p>Fixed <code class="docutils literal notranslate"><span class="pre">CancelScope.cancel()</span></code> not working on asyncio if called before entering the
+scope</p></li>
+<li><p>Fixed <code class="docutils literal notranslate"><span class="pre">open_signal_receiver()</span></code> inconsistently yielding integers instead of
+<code class="docutils literal notranslate"><span class="pre">signal.Signals</span></code> instances on the <code class="docutils literal notranslate"><span class="pre">trio</span></code> backend</p></li>
+<li><p>Fixed <code class="docutils literal notranslate"><span class="pre">to_thread.run_sync()</span></code> hanging on asyncio if the target callable raises
+<code class="docutils literal notranslate"><span class="pre">StopIteration</span></code></p></li>
+<li><p>Fixed <code class="docutils literal notranslate"><span class="pre">start_blocking_portal()</span></code> raising an unwarranted
+<code class="docutils literal notranslate"><span class="pre">RuntimeError:</span> <span class="pre">This</span> <span class="pre">portal</span> <span class="pre">is</span> <span class="pre">not</span> <span class="pre">running</span></code> if a task raises an exception that causes
+the event loop to be closed</p></li>
+<li><p>Fixed <code class="docutils literal notranslate"><span class="pre">current_effective_deadline()</span></code> not returning <code class="docutils literal notranslate"><span class="pre">-inf</span></code> on asyncio when the
+currently active cancel scope has been cancelled (PR by Ganden Schaffner)</p></li>
+<li><p>Fixed the <code class="docutils literal notranslate"><span class="pre">OP_IGNORE_UNEXPECTED_EOF</span></code> flag in an SSL context created by default in
+<code class="docutils literal notranslate"><span class="pre">TLSStream.wrap()</span></code> being inadvertently set on Python 3.11.3 and 3.10.11</p></li>
+<li><p>Fixed <code class="docutils literal notranslate"><span class="pre">CancelScope</span></code> to properly handle asyncio task uncancellation on Python 3.11
+(PR by Nikolay Bryskin)</p></li>
+<li><p>Fixed <code class="docutils literal notranslate"><span class="pre">OSError</span></code> when trying to use <code class="docutils literal notranslate"><span class="pre">create_tcp_listener()</span></code> to bind to a link-local
+IPv6 address (and worked around related bugs in <code class="docutils literal notranslate"><span class="pre">uvloop</span></code>)</p></li>
+<li><p>Worked around a <a class="reference external" href="https://foss.heptapod.net/pypy/pypy/-/issues/3938">PyPy bug</a>
+when using <code class="docutils literal notranslate"><span class="pre">anyio.getaddrinfo()</span></code> with for IPv6 link-local addresses containing
+interface names</p></li>
+</ul>
+<p><strong>3.6.2</strong></p>
+<ul class="simple">
+<li><p>Pinned Trio to &lt; 0.22 to avoid incompatibility with AnyIO's <code class="docutils literal notranslate"><span class="pre">ExceptionGroup</span></code> class
+causing <code class="docutils literal notranslate"><span class="pre">AttributeError:</span> <span class="pre">'NonBaseMultiError'</span> <span class="pre">object</span> <span class="pre">has</span> <span class="pre">no</span> <span class="pre">attribute</span> <span class="pre">'_exceptions'</span></code></p></li>
+</ul>
+<p><strong>3.6.1</strong></p>
+<ul class="simple">
+<li><p>Fixed exception handler in the asyncio test runner not properly handling a context
+that does not contain the <code class="docutils literal notranslate"><span class="pre">exception</span></code> key</p></li>
+</ul>
+<p><strong>3.6.0</strong></p>
+<ul class="simple">
+<li><p>Fixed <code class="docutils literal notranslate"><span class="pre">TypeError</span></code> in <code class="docutils literal notranslate"><span class="pre">get_current_task()</span></code> on asyncio when using a custom <code class="docutils literal notranslate"><span class="pre">Task</span></code>
+factory</p></li>
+<li><p>Updated type annotations on <code class="docutils literal notranslate"><span class="pre">run_process()</span></code> and <code class="docutils literal notranslate"><span class="pre">open_process()</span></code>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">command</span></code> now accepts accepts bytes and sequences of bytes</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">stdin</span></code>, <code class="docutils literal notranslate"><span class="pre">stdout</span></code> and <code class="docutils literal notranslate"><span class="pre">stderr</span></code> now accept file-like objects
+(PR by John T. Wodder II)</p></li>
+</ul>
+</li>
+<li><p>Changed the pytest plugin to run both the setup and teardown phases of asynchronous
+generator fixtures within a single task to enable use cases such as cancel scopes and
+task groups where a context manager straddles the <code class="docutils literal notranslate"><span class="pre">yield</span></code></p></li>
+</ul>
+<p><strong>3.5.0</strong></p>
+<ul class="simple">
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">start_new_session</span></code> keyword argument to <code class="docutils literal notranslate"><span class="pre">run_process()</span></code> and
+<code class="docutils literal notranslate"><span class="pre">open_process()</span></code> (PR by Jordan Speicher)</p></li>
+<li><p>Fixed deadlock in synchronization primitives on asyncio which can happen if a task
+acquiring a primitive is hit with a native (not AnyIO) cancellation with just the
+right timing, leaving the next acquiring task waiting forever
+(<a class="reference external" href="https://github.com/agronholm/anyio/issues/398">#398</a>)</p></li>
+<li><p>Added workaround for <a class="reference external" href="https://bugs.python.org/issue46313">bpo-46313</a> to enable compatibility with OpenSSL 3.0</p></li>
+</ul>
+<p><strong>3.4.0</strong></p>
+<ul>
+<li><p>Added context propagation to/from worker threads in <code class="docutils literal notranslate"><span class="pre">to_thread.run_sync()</span></code>,
+<code class="docutils literal notranslate"><span class="pre">from_thread.run()</span></code> and <code class="docutils literal notranslate"><span class="pre">from_thread.run_sync()</span></code>
+(<a class="reference external" href="https://github.com/agronholm/anyio/issues/363">#363</a>; partially based on a PR by
+Sebastián Ramírez)</p>
+<p><strong>NOTE</strong>: Requires Python 3.7 to work properly on asyncio!</p>
+</li>
+<li><p>Fixed race condition in <code class="docutils literal notranslate"><span class="pre">Lock</span></code> and <code class="docutils literal notranslate"><span class="pre">Semaphore</span></code> classes when a task waiting on
+<code class="docutils literal notranslate"><span class="pre">acquire()</span></code> is cancelled while another task is waiting to acquire the same primitive
+(<a class="reference external" href="https://github.com/agronholm/anyio/issues/387">#387</a>)</p></li>
+<li><p>Fixed async context manager's <code class="docutils literal notranslate"><span class="pre">__aexit__()</span></code> method not being called in
+<code class="docutils literal notranslate"><span class="pre">BlockingPortal.wrap_async_context_manager()</span></code> if the host task is cancelled
+(<a class="reference external" href="https://github.com/agronholm/anyio/issues/381">#381</a>; PR by Jonathan Slenders)</p></li>
+<li><p>Fixed worker threads being marked as being event loop threads in sniffio</p></li>
+<li><p>Fixed task parent ID not getting set to the correct value on asyncio</p></li>
+<li><p>Enabled the test suite to run without IPv6 support, trio or pytest plugin autoloading</p></li>
+</ul>
+<p><strong>3.3.4</strong></p>
+<ul class="simple">
+<li><p>Fixed <code class="docutils literal notranslate"><span class="pre">BrokenResourceError</span></code> instead of <code class="docutils literal notranslate"><span class="pre">EndOfStream</span></code> being raised in <code class="docutils literal notranslate"><span class="pre">TLSStream</span></code>
+when the peer abruptly closes the connection while <code class="docutils literal notranslate"><span class="pre">TLSStream</span></code> is receiving data
+with <code class="docutils literal notranslate"><span class="pre">standard_compatible=False</span></code> set</p></li>
+</ul>
+<p><strong>3.3.3</strong></p>
+<ul class="simple">
+<li><p>Fixed UNIX socket listener not setting accepted sockets to non-blocking mode on
+asyncio</p></li>
+<li><p>Changed unconnected UDP sockets to be always bound to a local port (on &quot;any&quot;
+interface) to avoid errors on asyncio + Windows</p></li>
+</ul>
+<p><strong>3.3.2</strong></p>
+<ul class="simple">
+<li><p>Fixed cancellation problem on asyncio where level-triggered cancellation for <strong>all</strong>
+parent cancel scopes would not resume after exiting a shielded nested scope
+(<a class="reference external" href="https://github.com/agronholm/anyio/issues/370">#370</a>)</p></li>
+</ul>
+<p><strong>3.3.1</strong></p>
+<ul class="simple">
+<li><p>Added missing documentation for the <code class="docutils literal notranslate"><span class="pre">ExceptionGroup.exceptions</span></code> attribute</p></li>
+<li><p>Changed the asyncio test runner not to use uvloop by default (to match the behavior of
+<code class="docutils literal notranslate"><span class="pre">anyio.run()</span></code>)</p></li>
+<li><p>Fixed <code class="docutils literal notranslate"><span class="pre">RuntimeError</span></code> on asyncio when a <code class="docutils literal notranslate"><span class="pre">CancelledError</span></code> is raised from a task
+spawned through a <code class="docutils literal notranslate"><span class="pre">BlockingPortal</span></code>
+(<a class="reference external" href="https://github.com/agronholm/anyio/issues/357">#357</a>)</p></li>
+<li><p>Fixed asyncio warning about a <code class="docutils literal notranslate"><span class="pre">Future</span></code> with an exception that was never retrieved
+which happened when a socket was already written to but the peer abruptly closed the
+connection</p></li>
+</ul>
+<p><strong>3.3.0</strong></p>
+<ul class="simple">
+<li><p>Added asynchronous <code class="docutils literal notranslate"><span class="pre">Path</span></code> class</p></li>
+<li><p>Added the <code class="docutils literal notranslate"><span class="pre">wrap_file()</span></code> function for wrapping existing files as asynchronous file
+objects</p></li>
+<li><p>Relaxed the type of the <code class="docutils literal notranslate"><span class="pre">path</span></code> initializer argument to <code class="docutils literal notranslate"><span class="pre">FileReadStream</span></code> and
+<code class="docutils literal notranslate"><span class="pre">FileWriteStream</span></code> so they accept any path-like object (including the new
+asynchronous <code class="docutils literal notranslate"><span class="pre">Path</span></code> class)</p></li>
+<li><p>Dropped unnecessary dependency on the <code class="docutils literal notranslate"><span class="pre">async_generator</span></code> library</p></li>
+<li><p>Changed the generics in <code class="docutils literal notranslate"><span class="pre">AsyncFile</span></code> so that the methods correctly return either
+<code class="docutils literal notranslate"><span class="pre">str</span></code> or <code class="docutils literal notranslate"><span class="pre">bytes</span></code> based on the argument to <code class="docutils literal notranslate"><span class="pre">open_file()</span></code></p></li>
+<li><p>Fixed an asyncio bug where under certain circumstances, a stopping worker thread would
+still accept new assignments, leading to a hang</p></li>
+</ul>
+<p><strong>3.2.1</strong></p>
+<ul class="simple">
+<li><p>Fixed idle thread pruning on asyncio sometimes causing an expired worker thread to be
+assigned a task</p></li>
+</ul>
+<p><strong>3.2.0</strong></p>
+<ul class="simple">
+<li><p>Added Python 3.10 compatibility</p></li>
+<li><p>Added the ability to close memory object streams synchronously (including support for
+use as a synchronous context manager)</p></li>
+<li><p>Changed the default value of the <code class="docutils literal notranslate"><span class="pre">use_uvloop</span></code> asyncio backend option to <code class="docutils literal notranslate"><span class="pre">False</span></code> to
+prevent unsafe event loop policy changes in different threads</p></li>
+<li><p>Fixed <code class="docutils literal notranslate"><span class="pre">to_thread.run_sync()</span></code> hanging on the second call on asyncio when used with
+<code class="docutils literal notranslate"><span class="pre">loop.run_until_complete()</span></code></p></li>
+<li><p>Fixed <code class="docutils literal notranslate"><span class="pre">to_thread.run_sync()</span></code> prematurely marking a worker thread inactive when a
+task await on the result is cancelled</p></li>
+<li><p>Fixed <code class="docutils literal notranslate"><span class="pre">ResourceWarning</span></code> about an unclosed socket when UNIX socket connect fails on
+asyncio</p></li>
+<li><p>Fixed the type annotation of <code class="docutils literal notranslate"><span class="pre">open_signal_receiver()</span></code> as a synchronous context
+manager</p></li>
+<li><p>Fixed the type annotation of <code class="docutils literal notranslate"><span class="pre">DeprecatedAwaitable(|List|Float).__await__</span></code> to match
+the <code class="docutils literal notranslate"><span class="pre">typing.Awaitable</span></code> protocol</p></li>
+</ul>
+<p><strong>3.1.0</strong></p>
+<ul class="simple">
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">env</span></code> and <code class="docutils literal notranslate"><span class="pre">cwd</span></code> keyword arguments to <code class="docutils literal notranslate"><span class="pre">run_process()</span></code> and <code class="docutils literal notranslate"><span class="pre">open_process</span></code>.</p></li>
+<li><p>Added support for mutation of <code class="docutils literal notranslate"><span class="pre">CancelScope.shield</span></code> (PR by John Belmonte)</p></li>
+<li><p>Added the <code class="docutils literal notranslate"><span class="pre">sleep_forever()</span></code> and <code class="docutils literal notranslate"><span class="pre">sleep_until()</span></code> functions</p></li>
+<li><p>Changed asyncio task groups so that if the host and child tasks have only raised
+<code class="docutils literal notranslate"><span class="pre">CancelledErrors</span></code>, just one <code class="docutils literal notranslate"><span class="pre">CancelledError</span></code> will now be raised instead of an
+<code class="docutils literal notranslate"><span class="pre">ExceptionGroup</span></code>, allowing asyncio to ignore it when it propagates out of the task</p></li>
+<li><p>Changed task names to be converted to <code class="docutils literal notranslate"><span class="pre">str</span></code> early on asyncio (PR by Thomas Grainger)</p></li>
+<li><p>Fixed <code class="docutils literal notranslate"><span class="pre">sniffio._impl.AsyncLibraryNotFoundError:</span> <span class="pre">unknown</span> <span class="pre">async</span> <span class="pre">library,</span> <span class="pre">or</span> <span class="pre">not</span> <span class="pre">in</span>
+<span class="pre">async</span> <span class="pre">context</span></code> on asyncio and Python 3.6 when <code class="docutils literal notranslate"><span class="pre">to_thread.run_sync()</span></code> is used from
+<code class="docutils literal notranslate"><span class="pre">loop.run_until_complete()</span></code></p></li>
+<li><p>Fixed odd <code class="docutils literal notranslate"><span class="pre">ExceptionGroup:</span> <span class="pre">0</span> <span class="pre">exceptions</span> <span class="pre">were</span> <span class="pre">raised</span> <span class="pre">in</span> <span class="pre">the</span> <span class="pre">task</span> <span class="pre">group</span></code> appearing
+under certain circumstances on asyncio</p></li>
+<li><p>Fixed <code class="docutils literal notranslate"><span class="pre">wait_all_tasks_blocked()</span></code> returning prematurely on asyncio when a previously
+blocked task is cancelled (PR by Thomas Grainger)</p></li>
+<li><p>Fixed declared return type of <code class="docutils literal notranslate"><span class="pre">TaskGroup.start()</span></code> (it was declared as <code class="docutils literal notranslate"><span class="pre">None</span></code>, but
+anything can be returned from it)</p></li>
+<li><p>Fixed <code class="docutils literal notranslate"><span class="pre">TextStream.extra_attributes</span></code> raising <code class="docutils literal notranslate"><span class="pre">AttributeError</span></code> (PR by Thomas
+Grainger)</p></li>
+<li><p>Fixed <code class="docutils literal notranslate"><span class="pre">await</span> <span class="pre">maybe_async(current_task())</span></code> returning <code class="docutils literal notranslate"><span class="pre">None</span></code> (PR by Thomas Grainger)</p></li>
+<li><p>Fixed: <code class="docutils literal notranslate"><span class="pre">pickle.dumps(current_task())</span></code> now correctly raises <code class="docutils literal notranslate"><span class="pre">TypeError</span></code> instead of
+pickling to <code class="docutils literal notranslate"><span class="pre">None</span></code> (PR by Thomas Grainger)</p></li>
+<li><p>Fixed return type annotation of <code class="docutils literal notranslate"><span class="pre">Event.wait()</span></code> (<code class="docutils literal notranslate"><span class="pre">bool</span></code> → <code class="docutils literal notranslate"><span class="pre">None</span></code>) (PR by Thomas
+Grainger)</p></li>
+<li><p>Fixed return type annotation of <code class="docutils literal notranslate"><span class="pre">RunVar.get()</span></code> to return either the type of the
+default value or the type of the contained value (PR by Thomas Grainger)</p></li>
+<li><p>Fixed a deprecation warning message to refer to <code class="docutils literal notranslate"><span class="pre">maybe_async()</span></code> and not
+<code class="docutils literal notranslate"><span class="pre">maybe_awaitable()</span></code> (PR by Thomas Grainger)</p></li>
+<li><p>Filled in argument and return types for all functions and methods previously missing
+them (PR by Thomas Grainger)</p></li>
+</ul>
+<p><strong>3.0.1</strong></p>
+<ul class="simple">
+<li><p>Fixed <code class="docutils literal notranslate"><span class="pre">to_thread.run_sync()</span></code> raising <code class="docutils literal notranslate"><span class="pre">RuntimeError</span></code> on asyncio when no &quot;root&quot; task
+could be found for setting up a cleanup callback. This was a problem at least on
+Tornado and possibly also Twisted in asyncio compatibility mode. The life of worker
+threads is now bound to the the host task of the topmost cancel scope hierarchy
+starting from the current one, or if no cancel scope is active, the current task.</p></li>
+</ul>
+<p><strong>3.0.0</strong></p>
+<ul>
+<li><p>Curio support has been dropped (see the <a class="reference internal" href="faq.html"><span class="doc">FAQ</span></a> as for why)</p></li>
+<li><p>API changes:</p>
+<ul class="simple">
+<li><p><strong>BACKWARDS INCOMPATIBLE</strong> Submodules under <code class="docutils literal notranslate"><span class="pre">anyio.abc.</span></code> have been made private
+(use only <code class="docutils literal notranslate"><span class="pre">anyio.abc</span></code> from now on).</p></li>
+<li><p><strong>BACKWARDS INCOMPATIBLE</strong> The following method was previously a coroutine method
+and has been converted into a synchronous one:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">MemoryObjectReceiveStream.receive_nowait()</span></code></p></li>
+</ul>
+</li>
+<li><p>The following functions and methods are no longer asynchronous but can still be
+awaited on (doing so will emit a deprecation warning):</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">current_time()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">current_effective_deadline()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">get_current_task()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">get_running_tasks()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CancelScope.cancel()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CapacityLimiter.acquire_nowait()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CapacityLimiter.acquire_on_behalf_of_nowait()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Condition.release()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Event.set()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Lock.release()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MemoryObjectSendStream.send_nowait()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Semaphore.release()</span></code></p></li>
+</ul>
+</li>
+<li><p>The following functions now return synchronous context managers instead of
+asynchronous context managers (and emit deprecation warnings if used as async
+context managers):</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">fail_after()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">move_on_after()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">open_cancel_scope()</span></code> (now just <code class="docutils literal notranslate"><span class="pre">CancelScope()</span></code>; see below)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">open_signal_receiver()</span></code></p></li>
+</ul>
+</li>
+<li><p>The following functions and methods have been renamed/moved (will now emit
+deprecation warnings when you use them by their old names):</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">create_blocking_portal()</span></code> → <code class="docutils literal notranslate"><span class="pre">anyio.from_thread.BlockingPortal()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">create_capacity_limiter()</span></code> → <code class="docutils literal notranslate"><span class="pre">anyio.CapacityLimiter()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">create_event()</span></code> → <code class="docutils literal notranslate"><span class="pre">anyio.Event()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">create_lock()</span></code> → <code class="docutils literal notranslate"><span class="pre">anyio.Lock()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">create_condition()</span></code> → <code class="docutils literal notranslate"><span class="pre">anyio.Condition()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">create_semaphore()</span></code> → <code class="docutils literal notranslate"><span class="pre">anyio.Semaphore()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">current_default_worker_thread_limiter()</span></code> →
+<code class="docutils literal notranslate"><span class="pre">anyio.to_thread.current_default_thread_limiter()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">open_cancel_scope()</span></code> → <code class="docutils literal notranslate"><span class="pre">anyio.CancelScope()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">run_sync_in_worker_thread()</span></code> → <code class="docutils literal notranslate"><span class="pre">anyio.to_thread.run_sync()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">run_async_from_thread()</span></code> → <code class="docutils literal notranslate"><span class="pre">anyio.from_thread.run()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">run_sync_from_thread()</span></code> → <code class="docutils literal notranslate"><span class="pre">anyio.from_thread.run_sync()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BlockingPortal.spawn_task</span></code> → <code class="docutils literal notranslate"><span class="pre">BlockingPortal.start_task_soon</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CapacityLimiter.set_total_tokens()</span></code> → <code class="docutils literal notranslate"><span class="pre">limiter.total_tokens</span> <span class="pre">=</span> <span class="pre">...</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TaskGroup.spawn()</span></code> → <code class="docutils literal notranslate"><span class="pre">TaskGroup.start_soon()</span></code></p></li>
+</ul>
+</li>
+<li><p><strong>BACKWARDS INCOMPATIBLE</strong> <code class="docutils literal notranslate"><span class="pre">start_blocking_portal()</span></code> must now be used as a context
+manager (it no longer returns a BlockingPortal, but a context manager that yields
+one)</p></li>
+<li><p><strong>BACKWARDS INCOMPATIBLE</strong> The <code class="docutils literal notranslate"><span class="pre">BlockingPortal.stop_from_external_thread()</span></code> method
+(use <code class="docutils literal notranslate"><span class="pre">portal.call(portal.stop)</span></code> instead now)</p></li>
+<li><p><strong>BACKWARDS INCOMPATIBLE</strong> The <code class="docutils literal notranslate"><span class="pre">SocketStream</span></code> and <code class="docutils literal notranslate"><span class="pre">SocketListener</span></code> classes were
+made non-generic</p></li>
+<li><p>Made all non-frozen dataclasses hashable with <code class="docutils literal notranslate"><span class="pre">eq=False</span></code></p></li>
+<li><p>Removed <code class="docutils literal notranslate"><span class="pre">__slots__</span></code> from <code class="docutils literal notranslate"><span class="pre">BlockingPortal</span></code></p></li>
+</ul>
+<p>See the <a class="reference internal" href="migration.html"><span class="doc">migration documentation</span></a> for instructions on how to deal
+with these changes.</p>
+</li>
+<li><p>Improvements to running synchronous code:</p>
+<ul class="simple">
+<li><p>Added the <code class="docutils literal notranslate"><span class="pre">run_sync_from_thread()</span></code> function</p></li>
+<li><p>Added the <code class="docutils literal notranslate"><span class="pre">run_sync_in_process()</span></code> function for running code in worker processes
+(big thanks to Richard Sheridan for his help on this one!)</p></li>
+</ul>
+</li>
+<li><p>Improvements to sockets and streaming:</p>
+<ul class="simple">
+<li><p>Added the <code class="docutils literal notranslate"><span class="pre">UNIXSocketStream</span></code> class which is capable of sending and receiving file
+descriptors</p></li>
+<li><p>Added the <code class="docutils literal notranslate"><span class="pre">FileReadStream</span></code> and <code class="docutils literal notranslate"><span class="pre">FileWriteStream</span></code> classes</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">create_unix_listener()</span></code> now removes any existing socket at the given path before
+proceeding (instead of raising <code class="docutils literal notranslate"><span class="pre">OSError:</span> <span class="pre">Address</span> <span class="pre">already</span> <span class="pre">in</span> <span class="pre">use</span></code>)</p></li>
+</ul>
+</li>
+<li><p>Improvements to task groups and cancellation:</p>
+<ul class="simple">
+<li><p>Added the <code class="docutils literal notranslate"><span class="pre">TaskGroup.start()</span></code> method and a corresponding
+<code class="docutils literal notranslate"><span class="pre">BlockingPortal.start_task()</span></code> method</p></li>
+<li><p>Added the <code class="docutils literal notranslate"><span class="pre">name</span></code> argument to <code class="docutils literal notranslate"><span class="pre">BlockingPortal.start_task_soon()</span></code>
+(renamed from <code class="docutils literal notranslate"><span class="pre">BlockingPortal.spawn_task()</span></code>)</p></li>
+<li><p>Changed <code class="docutils literal notranslate"><span class="pre">CancelScope.deadline</span></code> to be writable</p></li>
+<li><p>Added the following functions in the <code class="docutils literal notranslate"><span class="pre">anyio.lowlevel</span></code> module:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">checkpoint()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">checkpoint_if_cancelled()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cancel_shielded_checkpoint()</span></code></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Improvements and changes to synchronization primitives:</p>
+<ul class="simple">
+<li><p>Added the <code class="docutils literal notranslate"><span class="pre">Lock.acquire_nowait()</span></code>, <code class="docutils literal notranslate"><span class="pre">Condition.acquire_nowait()</span></code> and
+<code class="docutils literal notranslate"><span class="pre">Semaphore.acquire_nowait()</span></code> methods</p></li>
+<li><p>Added the <code class="docutils literal notranslate"><span class="pre">statistics()</span></code> method to <code class="docutils literal notranslate"><span class="pre">Event</span></code>, <code class="docutils literal notranslate"><span class="pre">Lock</span></code>, <code class="docutils literal notranslate"><span class="pre">Condition</span></code>, <code class="docutils literal notranslate"><span class="pre">Semaphore</span></code>,
+<code class="docutils literal notranslate"><span class="pre">CapacityLimiter</span></code>, <code class="docutils literal notranslate"><span class="pre">MemoryObjectReceiveStream</span></code> and <code class="docutils literal notranslate"><span class="pre">MemoryObjectSendStream</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Lock</span></code> and <code class="docutils literal notranslate"><span class="pre">Condition</span></code> can now only be released by the task that acquired them.
+This behavior is now consistent on all backends whereas previously only Trio
+enforced this.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">CapacityLimiter.total_tokens</span></code> property is now writable and
+<code class="docutils literal notranslate"><span class="pre">CapacityLimiter.set_total_tokens()</span></code> has been deprecated</p></li>
+<li><p>Added the <code class="docutils literal notranslate"><span class="pre">max_value</span></code> property to <code class="docutils literal notranslate"><span class="pre">Semaphore</span></code></p></li>
+</ul>
+</li>
+<li><p>Asyncio specific improvements (big thanks to Thomas Grainger for his effort on most of
+these!):</p>
+<ul class="simple">
+<li><p>Cancel scopes are now properly enforced with native asyncio coroutine functions
+(without any explicit AnyIO checkpoints)</p></li>
+<li><p>Changed the asyncio <code class="docutils literal notranslate"><span class="pre">CancelScope</span></code> to raise a <code class="docutils literal notranslate"><span class="pre">RuntimeError</span></code> if a cancel scope is
+being exited before it was even entered</p></li>
+<li><p>Changed the asyncio test runner to capture unhandled exceptions from asynchronous
+callbacks and unbound native tasks which are then raised after the test function (or
+async fixture setup or teardown) completes</p></li>
+<li><p>Changed the asyncio <code class="docutils literal notranslate"><span class="pre">TaskGroup.start_soon()</span></code> (formerly <code class="docutils literal notranslate"><span class="pre">spawn()</span></code>) method to call
+the target function immediately before starting the task, for consistency across
+backends</p></li>
+<li><p>Changed the asyncio <code class="docutils literal notranslate"><span class="pre">TaskGroup.start_soon()</span></code> (formerly <code class="docutils literal notranslate"><span class="pre">spawn()</span></code>) method to
+avoid the use of a coroutine wrapper on Python 3.8+ and added a hint for hiding the
+wrapper in tracebacks on earlier Pythons (supported by Pytest, Sentry etc.)</p></li>
+<li><p>Changed the default thread limiter on asyncio to use a <code class="docutils literal notranslate"><span class="pre">RunVar</span></code> so it is  scoped
+to the current event loop, thus avoiding potential conflict among multiple running
+event loops</p></li>
+<li><p>Thread pooling is now used on asyncio with <code class="docutils literal notranslate"><span class="pre">run_sync_in_worker_thread()</span></code></p></li>
+<li><p>Fixed <code class="docutils literal notranslate"><span class="pre">current_effective_deadline()</span></code> raising <code class="docutils literal notranslate"><span class="pre">KeyError</span></code> on asyncio when no
+cancel scope is active</p></li>
+</ul>
+</li>
+<li><p>Added the <code class="docutils literal notranslate"><span class="pre">RunVar</span></code> class for scoping variables to the running event loop</p></li>
+</ul>
+<p><strong>2.2.0</strong></p>
+<ul class="simple">
+<li><p>Added the <code class="docutils literal notranslate"><span class="pre">maybe_async()</span></code> and <code class="docutils literal notranslate"><span class="pre">maybe_async_cm()</span></code> functions to facilitate forward
+compatibility with AnyIO 3</p></li>
+<li><p>Fixed socket stream bug on asyncio where receiving a half-close from the peer would
+shut down the entire connection</p></li>
+<li><p>Fixed native task names not being set on asyncio on Python 3.8+</p></li>
+<li><p>Fixed <code class="docutils literal notranslate"><span class="pre">TLSStream.send_eof()</span></code> raising <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> instead of the expected
+<code class="docutils literal notranslate"><span class="pre">NotImplementedError</span></code></p></li>
+<li><p>Fixed <code class="docutils literal notranslate"><span class="pre">open_signal_receiver()</span></code> on asyncio and curio hanging if the cancel scope was
+cancelled before the function could run</p></li>
+<li><p>Fixed Trio test runner causing unwarranted test errors on <code class="docutils literal notranslate"><span class="pre">BaseException</span></code>
+(PR by Matthias Urlichs)</p></li>
+<li><p>Fixed formatted output of <code class="docutils literal notranslate"><span class="pre">ExceptionGroup</span></code> containing too many newlines</p></li>
+</ul>
+<p><strong>2.1.0</strong></p>
+<ul class="simple">
+<li><p>Added the <code class="docutils literal notranslate"><span class="pre">spawn_task()</span></code> and <code class="docutils literal notranslate"><span class="pre">wrap_async_context_manager()</span></code> methods to
+<code class="docutils literal notranslate"><span class="pre">BlockingPortal</span></code></p></li>
+<li><p>Added the <code class="docutils literal notranslate"><span class="pre">handshake_timeout</span></code> and <code class="docutils literal notranslate"><span class="pre">error_handler</span></code> parameters to <code class="docutils literal notranslate"><span class="pre">TLSListener</span></code></p></li>
+<li><p>Fixed <code class="docutils literal notranslate"><span class="pre">Event</span></code> objects on the trio backend not inheriting from <code class="docutils literal notranslate"><span class="pre">anyio.abc.Event</span></code></p></li>
+<li><p>Fixed <code class="docutils literal notranslate"><span class="pre">run_sync_in_worker_thread()</span></code> raising <code class="docutils literal notranslate"><span class="pre">UnboundLocalError</span></code> on asyncio when
+cancelled</p></li>
+<li><p>Fixed <code class="docutils literal notranslate"><span class="pre">send()</span></code> on socket streams not raising any exception on asyncio, and an
+unwrapped <code class="docutils literal notranslate"><span class="pre">BrokenPipeError</span></code> on trio and curio when the peer has disconnected</p></li>
+<li><p>Fixed <code class="docutils literal notranslate"><span class="pre">MemoryObjectSendStream.send()</span></code> raising <code class="docutils literal notranslate"><span class="pre">BrokenResourceError</span></code> when the last
+receiver is closed right after receiving the item</p></li>
+<li><p>Fixed <code class="docutils literal notranslate"><span class="pre">ValueError:</span> <span class="pre">Invalid</span> <span class="pre">file</span> <span class="pre">descriptor:</span> <span class="pre">-1</span></code> when closing a <code class="docutils literal notranslate"><span class="pre">SocketListener</span></code> on
+asyncio</p></li>
+</ul>
+<p><strong>2.0.2</strong></p>
+<ul class="simple">
+<li><p>Fixed one more case of
+<code class="docutils literal notranslate"><span class="pre">AttributeError:</span> <span class="pre">'async_generator_asend'</span> <span class="pre">object</span> <span class="pre">has</span> <span class="pre">no</span> <span class="pre">attribute</span> <span class="pre">'cr_await'</span></code> on
+asyncio</p></li>
+</ul>
+<p><strong>2.0.1</strong></p>
+<ul class="simple">
+<li><p>Fixed broken <code class="docutils literal notranslate"><span class="pre">MultiListener.extra()</span></code> (PR by daa)</p></li>
+<li><p>Fixed <code class="docutils literal notranslate"><span class="pre">TLSStream</span></code> returning an empty bytes object instead of raising <code class="docutils literal notranslate"><span class="pre">EndOfStream</span></code>
+when trying to receive from the stream after a closing handshake</p></li>
+<li><p>Fixed <code class="docutils literal notranslate"><span class="pre">AttributeError</span></code> when cancelling a task group's scope inside an async test
+fixture on asyncio</p></li>
+<li><p>Fixed <code class="docutils literal notranslate"><span class="pre">wait_all_tasks_blocked()</span></code> raising <code class="docutils literal notranslate"><span class="pre">AttributeError</span></code> on asyncio if a native
+task is waiting on an async generator's <code class="docutils literal notranslate"><span class="pre">asend()</span></code> method</p></li>
+</ul>
+<p><strong>2.0.0</strong></p>
+<ul>
+<li><p>General new features:</p>
+<ul class="simple">
+<li><p>Added support for subprocesses</p></li>
+<li><p>Added support for &quot;blocking portals&quot; which allow running functions in the event loop
+thread from external threads</p></li>
+<li><p>Added the <code class="docutils literal notranslate"><span class="pre">anyio.aclose_forcefully()</span></code> function for closing asynchronous resources
+as quickly as possible</p></li>
+</ul>
+</li>
+<li><p>General changes/fixes:</p>
+<ul class="simple">
+<li><p><strong>BACKWARDS INCOMPATIBLE</strong> Some functions have been renamed or removed (see further
+below for socket/fileio API changes):</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">finalize()</span></code> → (removed; use <code class="docutils literal notranslate"><span class="pre">contextlib.aclosing()</span></code> instead)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">receive_signals()</span></code> → <code class="docutils literal notranslate"><span class="pre">open_signal_receiver()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">run_in_thread()</span></code> → <code class="docutils literal notranslate"><span class="pre">run_sync_in_worker_thread()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">current_default_thread_limiter()</span></code> → <code class="docutils literal notranslate"><span class="pre">current_default_worker_thread_limiter()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ResourceBusyError</span></code> → <code class="docutils literal notranslate"><span class="pre">BusyResourceError</span></code></p></li>
+</ul>
+</li>
+<li><p><strong>BACKWARDS INCOMPATIBLE</strong> Exception classes were moved to the top level package</p></li>
+<li><p>Dropped support for Python 3.5</p></li>
+<li><p>Bumped minimum versions of trio and curio to v0.16 and v1.4, respectively</p></li>
+<li><p>Changed the <code class="docutils literal notranslate"><span class="pre">repr()</span></code> of <code class="docutils literal notranslate"><span class="pre">ExceptionGroup</span></code> to match trio's <code class="docutils literal notranslate"><span class="pre">MultiError</span></code></p></li>
+</ul>
+</li>
+<li><p>Backend specific changes and fixes:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">asyncio</span></code>: Added support for <code class="docutils literal notranslate"><span class="pre">ProactorEventLoop</span></code>. This allows asyncio
+applications to use AnyIO on Windows even without using AnyIO as the entry point.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">asyncio</span></code>: The asyncio backend now uses <code class="docutils literal notranslate"><span class="pre">asyncio.run()</span></code> behind the scenes which
+properly shuts down async generators and cancels any leftover native tasks</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">curio</span></code>: Worked around the limitation where a task can only be cancelled twice
+(any cancellations beyond that were ignored)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">asyncio</span></code> + <code class="docutils literal notranslate"><span class="pre">curio</span></code>: a cancellation check now calls <code class="docutils literal notranslate"><span class="pre">sleep(0)</span></code>, allowing the
+scheduler to switch to a different task</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">asyncio</span></code> + <code class="docutils literal notranslate"><span class="pre">curio</span></code>: Host name resolution now uses <a class="reference external" href="https://tools.ietf.org/html/rfc5895">IDNA 2008</a> (with UTS 46
+compatibility mapping, just like trio)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">asyncio</span></code> + <code class="docutils literal notranslate"><span class="pre">curio</span></code>: Fixed a bug where a task group would abandon its subtasks
+if its own cancel scope was cancelled while it was waiting for subtasks to finish</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">asyncio</span></code> + <code class="docutils literal notranslate"><span class="pre">curio</span></code>: Fixed recursive tracebacks when a single exception from an
+inner task group is reraised in an outer task group</p></li>
+</ul>
+</li>
+<li><p>Socket/stream changes:</p>
+<ul>
+<li><p><strong>BACKWARDS INCOMPATIBLE</strong> The stream class structure was completely overhauled.
+There are now separate abstract base classes for receive and send streams, byte
+streams and reliable and unreliable object streams. Stream wrappers are much better
+supported by this new ABC structure and a new &quot;typed extra attribute&quot; system that
+lets you query the wrapper chain for the attributes you want via <code class="docutils literal notranslate"><span class="pre">.extra(...)</span></code>.</p></li>
+<li><p><strong>BACKWARDS INCOMPATIBLE</strong> Socket server functionality has been refactored into a
+network-agnostic listener system</p></li>
+<li><p><strong>BACKWARDS INCOMPATIBLE</strong> TLS functionality has been split off from
+<code class="docutils literal notranslate"><span class="pre">SocketStream</span></code> and can now work over any bidirectional bytes-based stream – you
+can now establish a TLS encrypted communications pathway over UNIX sockets or even
+memory object streams. The <code class="docutils literal notranslate"><span class="pre">TLSRequired</span></code> exception has also been removed as it is
+no longer necessary.</p></li>
+<li><p><strong>BACKWARDS INCOMPATIBLE</strong> Buffering functionality (<code class="docutils literal notranslate"><span class="pre">receive_until()</span></code> and
+<code class="docutils literal notranslate"><span class="pre">receive_exactly()</span></code>) was split off from <code class="docutils literal notranslate"><span class="pre">SocketStream</span></code> into a stream wrapper
+class (<code class="docutils literal notranslate"><span class="pre">anyio.streams.buffered.BufferedByteReceiveStream</span></code>)</p></li>
+<li><p><strong>BACKWARDS INCOMPATIBLE</strong> IPv6 addresses are now reported as 2-tuples. If original
+4-tuple form contains a nonzero scope ID, it is appended to the address with <code class="docutils literal notranslate"><span class="pre">%</span></code>
+as the separator.</p></li>
+<li><p><strong>BACKWARDS INCOMPATIBLE</strong> Byte streams (including socket streams) now raise
+<code class="docutils literal notranslate"><span class="pre">EndOfStream</span></code> instead of returning an empty bytes object when the stream has been
+closed from the other end</p></li>
+<li><p><strong>BACKWARDS INCOMPATIBLE</strong> The socket API has changes:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">create_tcp_server()</span></code> → <code class="docutils literal notranslate"><span class="pre">create_tcp_listener()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">create_unix_server()</span></code> → <code class="docutils literal notranslate"><span class="pre">create_unix_listener()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">create_udp_socket()</span></code> had some of its parameters changed:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">interface</span></code> → <code class="docutils literal notranslate"><span class="pre">local_address</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">port</span></code> → <code class="docutils literal notranslate"><span class="pre">local_port</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">reuse_address</span></code> was replaced with <code class="docutils literal notranslate"><span class="pre">reuse_port</span></code> (and sets <code class="docutils literal notranslate"><span class="pre">SO_REUSEPORT</span></code>
+instead of <code class="docutils literal notranslate"><span class="pre">SO_REUSEADDR</span></code>)</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">connect_tcp()</span></code> had some of its parameters changed:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">address</span></code> → <code class="docutils literal notranslate"><span class="pre">remote_address</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">port</span></code> → <code class="docutils literal notranslate"><span class="pre">remote_port</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bind_host</span></code> → <code class="docutils literal notranslate"><span class="pre">local_address</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bind_port</span></code> → (removed)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">autostart_tls</span></code> → <code class="docutils literal notranslate"><span class="pre">tls</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tls_hostname</span></code> (new parameter, when you want to match the certificate against
+against something else than <code class="docutils literal notranslate"><span class="pre">remote_address</span></code>)</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">connect_tcp()</span></code> now returns a <code class="docutils literal notranslate"><span class="pre">TLSStream</span></code> if TLS was enabled</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">notify_socket_closing()</span></code> was removed, as it is no longer used by AnyIO</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SocketStream</span></code> has changes to its methods and attributes:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">address</span></code> → <code class="docutils literal notranslate"><span class="pre">.extra(SocketAttribute.local_address)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">alpn_protocol</span></code> → <code class="docutils literal notranslate"><span class="pre">.extra(TLSAttribute.alpn_protocol)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">close()</span></code> → <code class="docutils literal notranslate"><span class="pre">aclose()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">get_channel_binding</span></code> → <code class="docutils literal notranslate"><span class="pre">.extra(TLSAttribute.channel_binding_tls_unique)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cipher</span></code> → <code class="docutils literal notranslate"><span class="pre">.extra(TLSAttribute.cipher)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">getpeercert</span></code> → <code class="docutils literal notranslate"><span class="pre">.extra(SocketAttribute.peer_certificate)</span></code> or
+<code class="docutils literal notranslate"><span class="pre">.extra(SocketAttribute.peer_certificate_binary)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">getsockopt()</span></code> → <code class="docutils literal notranslate"><span class="pre">.extra(SocketAttribute.raw_socket).getsockopt(...)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">peer_address</span></code> → <code class="docutils literal notranslate"><span class="pre">.extra(SocketAttribute.remote_address)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">receive_chunks()</span></code> → (removed; use <code class="docutils literal notranslate"><span class="pre">async</span> <span class="pre">for</span></code> on the stream instead)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">receive_delimited_chunks()</span></code> → (removed)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">receive_exactly()</span></code> → <code class="docutils literal notranslate"><span class="pre">BufferedReceiveStream.receive_exactly()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">receive_some()</span></code> → <code class="docutils literal notranslate"><span class="pre">receive()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">receive_until()</span></code> → <code class="docutils literal notranslate"><span class="pre">BufferedReceiveStream.receive_until()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">send_all()</span></code> → <code class="docutils literal notranslate"><span class="pre">send()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">setsockopt()</span></code> → <code class="docutils literal notranslate"><span class="pre">.extra(SocketAttribute.raw_socket).setsockopt(...)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">shared_ciphers</span></code> → <code class="docutils literal notranslate"><span class="pre">.extra(TLSAttribute.shared_ciphers)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">server_side</span></code> → <code class="docutils literal notranslate"><span class="pre">.extra(TLSAttribute.server_side)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">start_tls()</span></code> → <code class="docutils literal notranslate"><span class="pre">stream</span> <span class="pre">=</span> <span class="pre">TLSStream.wrap(...)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tls_version</span></code> → <code class="docutils literal notranslate"><span class="pre">.extra(TLSAttribute.tls_version)</span></code></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UDPSocket</span></code> has changes to its methods and attributes:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">address</span></code> → <code class="docutils literal notranslate"><span class="pre">.extra(SocketAttribute.local_address)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">getsockopt()</span></code> → <code class="docutils literal notranslate"><span class="pre">.extra(SocketAttribute.raw_socket).getsockopt(...)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">port</span></code> → <code class="docutils literal notranslate"><span class="pre">.extra(SocketAttribute.local_port)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">receive()</span></code> no longer takes a maximum bytes argument</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">receive_packets()</span></code> → (removed; use <code class="docutils literal notranslate"><span class="pre">async</span> <span class="pre">for</span></code> on the UDP socket instead)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">send()</span></code> → requires a tuple for destination now (address, port), for
+compatibility with the new <code class="docutils literal notranslate"><span class="pre">UnreliableObjectStream</span></code> interface. The
+<code class="docutils literal notranslate"><span class="pre">sendto()</span></code> method works like the old <code class="docutils literal notranslate"><span class="pre">send()</span></code> method.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">setsockopt()</span></code> → <code class="docutils literal notranslate"><span class="pre">.extra(SocketAttribute.raw_socket).setsockopt(...)</span></code></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>BACKWARDS INCOMPATIBLE</strong> Renamed the <code class="docutils literal notranslate"><span class="pre">max_size</span></code> parameter to <code class="docutils literal notranslate"><span class="pre">max_bytes</span></code>
+wherever it occurred (this was inconsistently named <code class="docutils literal notranslate"><span class="pre">max_bytes</span></code> in some subclasses
+before)</p></li>
+<li><p>Added memory object streams as a replacement for queues</p></li>
+<li><p>Added stream wrappers for encoding/decoding unicode strings</p></li>
+<li><p>Support for the <code class="docutils literal notranslate"><span class="pre">SO_REUSEPORT</span></code> option (allows binding more than one socket to the
+same address/port combination, as long as they all have this option set) has been
+added to TCP listeners and UDP sockets</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">send_eof()</span></code> method was added to all (bidirectional) streams</p></li>
+</ul>
+</li>
+<li><p>File I/O changes:</p>
+<ul class="simple">
+<li><p><strong>BACKWARDS INCOMPATIBLE</strong> Asynchronous file I/O functionality now uses a common
+code base (<code class="docutils literal notranslate"><span class="pre">anyio.AsyncFile</span></code>) instead of backend-native classes</p></li>
+<li><p><strong>BACKWARDS INCOMPATIBLE</strong> The File I/O API has changes to its functions and
+methods:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">aopen()</span></code> → <code class="docutils literal notranslate"><span class="pre">open_file()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">AsyncFileclose()</span></code> → <code class="docutils literal notranslate"><span class="pre">AsyncFileaclose()</span></code></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Task synchronization changes:</p>
+<ul class="simple">
+<li><p><strong>BACKWARDS INCOMPATIBLE</strong> Queues were replaced by memory object streams</p></li>
+<li><p><strong>BACKWARDS INCOMPATIBLE</strong> Added the <code class="docutils literal notranslate"><span class="pre">acquire()</span></code> and <code class="docutils literal notranslate"><span class="pre">release()</span></code> methods to the
+<code class="docutils literal notranslate"><span class="pre">Lock</span></code>, <code class="docutils literal notranslate"><span class="pre">Condition</span></code> and <code class="docutils literal notranslate"><span class="pre">Semaphore</span></code> classes</p></li>
+<li><p><strong>BACKWARDS INCOMPATIBLE</strong> Removed the <code class="docutils literal notranslate"><span class="pre">Event.clear()</span></code> method. You must now
+replace the event object with a new one rather than clear the old one.</p></li>
+<li><p>Fixed <code class="docutils literal notranslate"><span class="pre">Condition.wait()</span></code> not working on asyncio and curio (PR by Matt Westcott)</p></li>
+</ul>
+</li>
+<li><p>Testing changes:</p>
+<ul class="simple">
+<li><p><strong>BACKWARDS INCOMPATIBLE</strong> Removed the <code class="docutils literal notranslate"><span class="pre">--anyio-backends</span></code> command line option for
+the pytest plugin. Use the <code class="docutils literal notranslate"><span class="pre">-k</span></code> option to do ad-hoc filtering, and the
+<code class="docutils literal notranslate"><span class="pre">anyio_backend</span></code> fixture to control which backends you wish to run the tests by
+default.</p></li>
+<li><p>The pytest plugin was refactored to run the test and all its related async fixtures
+inside the same event loop, making async fixtures much more useful</p></li>
+<li><p>Fixed Hypothesis support in the pytest plugin (it was not actually running the
+Hypothesis tests at all)</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>1.4.0</strong></p>
+<ul class="simple">
+<li><p>Added async name resolution functions (<code class="docutils literal notranslate"><span class="pre">anyio.getaddrinfo()</span></code> and
+<code class="docutils literal notranslate"><span class="pre">anyio.getnameinfo()</span></code>)</p></li>
+<li><p>Added the <code class="docutils literal notranslate"><span class="pre">family</span></code> and <code class="docutils literal notranslate"><span class="pre">reuse_address</span></code> parameters to <code class="docutils literal notranslate"><span class="pre">anyio.create_udp_socket()</span></code>
+(Enables multicast support; test contributed by Matthias Urlichs)</p></li>
+<li><p>Fixed <code class="docutils literal notranslate"><span class="pre">fail.after(0)</span></code> not raising a timeout error on asyncio and curio</p></li>
+<li><p>Fixed <code class="docutils literal notranslate"><span class="pre">move_on_after()</span></code> and <code class="docutils literal notranslate"><span class="pre">fail_after()</span></code> getting stuck on curio in some
+circumstances</p></li>
+<li><p>Fixed socket operations not allowing timeouts to cancel the task</p></li>
+<li><p>Fixed API documentation on <code class="docutils literal notranslate"><span class="pre">Stream.receive_until()</span></code> which claimed that the delimiter
+will be included in the returned data when it really isn't</p></li>
+<li><p>Harmonized the default task names across all backends</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">wait_all_tasks_blocked()</span></code> no longer considers tasks waiting on <code class="docutils literal notranslate"><span class="pre">sleep(0)</span></code> to be
+blocked on asyncio and curio</p></li>
+<li><p>Fixed the type of the <code class="docutils literal notranslate"><span class="pre">address</span></code> parameter in <code class="docutils literal notranslate"><span class="pre">UDPSocket.send()</span></code> to include
+<code class="docutils literal notranslate"><span class="pre">IPAddress</span></code> objects (which were already supported by the backing implementation)</p></li>
+<li><p>Fixed <code class="docutils literal notranslate"><span class="pre">UDPSocket.send()</span></code> to resolve host names using <code class="docutils literal notranslate"><span class="pre">anyio.getaddrinfo()</span></code> before
+calling <code class="docutils literal notranslate"><span class="pre">socket.sendto()</span></code> to avoid blocking on synchronous name resolution</p></li>
+<li><p>Switched to using <code class="docutils literal notranslate"><span class="pre">anyio.getaddrinfo()</span></code> for name lookups</p></li>
+</ul>
+<p><strong>1.3.1</strong></p>
+<ul class="simple">
+<li><p>Fixed warnings caused by trio 0.15</p></li>
+<li><p>Worked around a compatibility issue between uvloop and Python 3.9 (missing
+<code class="docutils literal notranslate"><span class="pre">shutdown_default_executor()</span></code> method)</p></li>
+</ul>
+<p><strong>1.3.0</strong></p>
+<ul class="simple">
+<li><p>Fixed compatibility with Curio 1.0</p></li>
+<li><p>Made it possible to assert fine grained control over which AnyIO backends and backend
+options are being used with each test</p></li>
+<li><p>Added the <code class="docutils literal notranslate"><span class="pre">address</span></code> and <code class="docutils literal notranslate"><span class="pre">peer_address</span></code> properties to the <code class="docutils literal notranslate"><span class="pre">SocketStream</span></code>
+interface</p></li>
+</ul>
+<p><strong>1.2.3</strong></p>
+<ul class="simple">
+<li><p>Repackaged release (v1.2.2 contained extra files from an experimental
+branch which broke imports)</p></li>
+</ul>
+<p><strong>1.2.2</strong></p>
+<ul class="simple">
+<li><p>Fixed <code class="docutils literal notranslate"><span class="pre">CancelledError</span></code> leaking from a cancel scope on asyncio if the task previously
+received a cancellation exception</p></li>
+<li><p>Fixed <code class="docutils literal notranslate"><span class="pre">AttributeError</span></code> when cancelling a generator-based task (asyncio)</p></li>
+<li><p>Fixed <code class="docutils literal notranslate"><span class="pre">wait_all_tasks_blocked()</span></code> not working with generator-based tasks (asyncio)</p></li>
+<li><p>Fixed an unnecessary delay in <code class="docutils literal notranslate"><span class="pre">connect_tcp()</span></code> if an earlier attempt succeeds</p></li>
+<li><p>Fixed <code class="docutils literal notranslate"><span class="pre">AssertionError</span></code> in <code class="docutils literal notranslate"><span class="pre">connect_tcp()</span></code> if multiple connection attempts succeed
+simultaneously</p></li>
+</ul>
+<p><strong>1.2.1</strong></p>
+<ul class="simple">
+<li><p>Fixed cancellation errors leaking from a task group when they are contained in an
+exception group</p></li>
+<li><p>Fixed trio v0.13 compatibility on Windows</p></li>
+<li><p>Fixed inconsistent queue capacity across backends when capacity was defined as 0
+(trio = 0, others = infinite)</p></li>
+<li><p>Fixed socket creation failure crashing <code class="docutils literal notranslate"><span class="pre">connect_tcp()</span></code></p></li>
+</ul>
+<p><strong>1.2.0</strong></p>
+<ul class="simple">
+<li><p>Added the possibility to parametrize regular pytest test functions against the
+selected list of backends</p></li>
+<li><p>Added the <code class="docutils literal notranslate"><span class="pre">set_total_tokens()</span></code> method to <code class="docutils literal notranslate"><span class="pre">CapacityLimiter</span></code></p></li>
+<li><p>Added the <code class="docutils literal notranslate"><span class="pre">anyio.current_default_thread_limiter()</span></code> function</p></li>
+<li><p>Added the <code class="docutils literal notranslate"><span class="pre">cancellable</span></code> parameter to <code class="docutils literal notranslate"><span class="pre">anyio.run_in_thread()</span></code></p></li>
+<li><p>Implemented the Happy Eyeballs (<span class="target" id="index-0"></span><a class="rfc reference external" href="https://datatracker.ietf.org/doc/html/rfc6555.html"><strong>RFC 6555</strong></a>) algorithm for <code class="docutils literal notranslate"><span class="pre">anyio.connect_tcp()</span></code></p></li>
+<li><p>Fixed <code class="docutils literal notranslate"><span class="pre">KeyError</span></code> on asyncio and curio where entering and exiting a cancel scope
+happens in different tasks</p></li>
+<li><p>Fixed deprecation warnings on Python 3.8 about the <code class="docutils literal notranslate"><span class="pre">loop</span></code> argument of
+<code class="docutils literal notranslate"><span class="pre">asyncio.Event()</span></code></p></li>
+<li><p>Forced the use <code class="docutils literal notranslate"><span class="pre">WindowsSelectorEventLoopPolicy</span></code> in <code class="docutils literal notranslate"><span class="pre">asyncio.run</span></code> when on Windows
+and asyncio
+to keep network functionality working</p></li>
+<li><p>Worker threads are now spawned with <code class="docutils literal notranslate"><span class="pre">daemon=True</span></code> on all backends, not just trio</p></li>
+<li><p>Dropped support for trio v0.11</p></li>
+</ul>
+<p><strong>1.1.0</strong></p>
+<ul class="simple">
+<li><p>Added the <code class="docutils literal notranslate"><span class="pre">lock</span></code> parameter to <code class="docutils literal notranslate"><span class="pre">anyio.create_condition()</span></code> (PR by Matthias Urlichs)</p></li>
+<li><p>Added async iteration for queues (PR by Matthias Urlichs)</p></li>
+<li><p>Added capacity limiters</p></li>
+<li><p>Added the possibility of using capacity limiters for limiting the maximum number of
+threads</p></li>
+<li><p>Fixed compatibility with trio v0.12</p></li>
+<li><p>Fixed IPv6 support in <code class="docutils literal notranslate"><span class="pre">create_tcp_server()</span></code>, <code class="docutils literal notranslate"><span class="pre">connect_tcp()</span></code> and
+<code class="docutils literal notranslate"><span class="pre">create_udp_socket()</span></code></p></li>
+<li><p>Fixed mishandling of task cancellation while the task is running a worker thread on
+asyncio and curio</p></li>
+</ul>
+<p><strong>1.0.0</strong></p>
+<ul class="simple">
+<li><p>Fixed <a class="reference external" href="https://pypi.org/project/pathlib2/">pathlib2</a> compatibility with <code class="docutils literal notranslate"><span class="pre">anyio.aopen()</span></code></p></li>
+<li><p>Fixed timeouts not propagating from nested scopes on asyncio and curio (PR by Matthias
+Urlichs)</p></li>
+<li><p>Fixed incorrect call order in socket close notifications on asyncio (mostly affecting
+Windows)</p></li>
+<li><p>Prefixed backend module names with an underscore to better indicate privateness</p></li>
+</ul>
+<blockquote>
+<div></div></blockquote>
+<p><strong>1.0.0rc2</strong></p>
+<ul class="simple">
+<li><p>Fixed some corner cases of cancellation where behavior on asyncio and curio did not
+match with that of trio. Thanks to Joshua Oreman for help with this.</p></li>
+<li><p>Fixed <code class="docutils literal notranslate"><span class="pre">current_effective_deadline()</span></code> not taking shielded cancellation scopes into
+account on asyncio and curio</p></li>
+<li><p>Fixed task cancellation not happening right away on asyncio and curio when a cancel
+scope is entered when the deadline has already passed</p></li>
+<li><p>Fixed exception group containing only cancellation exceptions not being swallowed by a
+timed out cancel scope on asyncio and curio</p></li>
+<li><p>Added the <code class="docutils literal notranslate"><span class="pre">current_time()</span></code> function</p></li>
+<li><p>Replaced <code class="docutils literal notranslate"><span class="pre">CancelledError</span></code> with <code class="docutils literal notranslate"><span class="pre">get_cancelled_exc_class()</span></code></p></li>
+<li><p>Added support for <a class="reference external" href="https://hypothesis.works/">Hypothesis</a></p></li>
+<li><p>Added support for <span class="target" id="index-1"></span><a class="pep reference external" href="https://peps.python.org/pep-0561/"><strong>PEP 561</strong></a></p></li>
+<li><p>Use uvloop for the asyncio backend by default when available (but only on CPython)</p></li>
+</ul>
+<p><strong>1.0.0rc1</strong></p>
+<ul class="simple">
+<li><p>Fixed <code class="docutils literal notranslate"><span class="pre">setsockopt()</span></code> passing options to the underlying method in the wrong manner</p></li>
+<li><p>Fixed cancellation propagation from nested task groups</p></li>
+<li><p>Fixed <code class="docutils literal notranslate"><span class="pre">get_running_tasks()</span></code> returning tasks from other event loops</p></li>
+<li><p>Added the <code class="docutils literal notranslate"><span class="pre">parent_id</span></code> attribute to <code class="docutils literal notranslate"><span class="pre">anyio.TaskInfo</span></code></p></li>
+<li><p>Added the <code class="docutils literal notranslate"><span class="pre">get_current_task()</span></code> function</p></li>
+<li><p>Added guards to protect against concurrent read/write from/to sockets by multiple
+tasks</p></li>
+<li><p>Added the <code class="docutils literal notranslate"><span class="pre">notify_socket_close()</span></code> function</p></li>
+</ul>
+<p><strong>1.0.0b2</strong></p>
+<ul class="simple">
+<li><p>Added introspection of running tasks via <code class="docutils literal notranslate"><span class="pre">anyio.get_running_tasks()</span></code></p></li>
+<li><p>Added the <code class="docutils literal notranslate"><span class="pre">getsockopt()</span></code> and <code class="docutils literal notranslate"><span class="pre">setsockopt()</span></code> methods to the <code class="docutils literal notranslate"><span class="pre">SocketStream</span></code> API</p></li>
+<li><p>Fixed mishandling of large buffers by <code class="docutils literal notranslate"><span class="pre">BaseSocket.sendall()</span></code></p></li>
+<li><p>Fixed compatibility with (and upgraded minimum required version to) trio v0.11</p></li>
+</ul>
+<p><strong>1.0.0b1</strong></p>
+<ul class="simple">
+<li><p>Initial release</p></li>
+</ul>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          
+          <a class="prev-page" href="contributing.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">为 AnyIO 做出贡献</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2018, Alex Grönholm
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            <div class="icons">
+              <a class="muted-link " href="https://github.com/hellowac/anyio-zh-cn" aria-label="GitHub">
+                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
+                </svg>
+            </a>
+              
+            </div>
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer no-toc">
+      
+      
+      
+    </aside>
+  </div>
+</div><script src="_static/documentation_options.js?v=b0668c51"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/furo.js?v=5fa4622c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/translations.js?v=beaddf03"></script>
+    <script src="_static/tabs.js?v=3030b3cb"></script>
+    </body>
+</html>
